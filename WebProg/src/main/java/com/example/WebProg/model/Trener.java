@@ -5,9 +5,10 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Trener {
+public class Trener implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
