@@ -1,0 +1,1 @@
+Insert into Administrator (korisnicko_ime,lozinka,ime,prezime,kontakt_telefon,email,datum_rodjenja,uloga,aktivan) values ('Luka123','123123','Luka','Nestorovic','065444','luka@gmail.com','2001-02-12','Administrator',true);

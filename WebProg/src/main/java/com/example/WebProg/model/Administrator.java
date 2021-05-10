@@ -1,7 +1,6 @@
 package com.example.WebProg.model;
 
 import org.springframework.data.annotation.Id;
-import sun.util.calendar.BaseCalendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
