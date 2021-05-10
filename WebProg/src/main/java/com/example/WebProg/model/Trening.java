@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Trening implements Serializable {
     @Id
@@ -30,6 +32,9 @@ public class Trening implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Sala sala;
+
+    @OneToMany(mappedBy = "trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<OdradjeniTrening> odradjeni_treninzi = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -77,5 +82,21 @@ public class Trening implements Serializable {
 
     public void setTrener(Trener trener) {
         this.trener = trener;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
     }
 }

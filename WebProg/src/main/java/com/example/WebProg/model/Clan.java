@@ -39,7 +39,10 @@ public class Clan implements Serializable {
     private Boolean aktivan;
 
     @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Trening> odradjeni_treninzi = new HashSet<>();
+    private Set<OdradjeniTrening> odradjeni_treninzi = new HashSet<>();
+
+    @OneToMany(mappedBy = "clanOcena",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<OdradjeniTrening> ocena = new HashSet<>();
 
     @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trening> prijavljeni_treninzi = new HashSet<>();
@@ -124,19 +127,27 @@ public class Clan implements Serializable {
         this.aktivan = aktivan;
     }
 
-    public Set<Trening> getOdradjeni_treninzi() {
-        return odradjeni_treninzi;
-    }
-
-    public void setOdradjeni_treninzi(Set<Trening> odradjeni_treninzi) {
-        this.odradjeni_treninzi = odradjeni_treninzi;
-    }
-
     public Set<Trening> getPrijavljeni_treninzi() {
         return prijavljeni_treninzi;
     }
 
     public void setPrijavljeni_treninzi(Set<Trening> prijavljeni_treninzi) {
         this.prijavljeni_treninzi = prijavljeni_treninzi;
+    }
+
+    public Set<OdradjeniTrening> getOdradjeni_treninzi() {
+        return odradjeni_treninzi;
+    }
+
+    public void setOdradjeni_treninzi(Set<OdradjeniTrening> odradjeni_treninzi) {
+        this.odradjeni_treninzi = odradjeni_treninzi;
+    }
+
+    public Set<OdradjeniTrening> getOcena() {
+        return ocena;
+    }
+
+    public void setOcena(Set<OdradjeniTrening> ocena) {
+        this.ocena = ocena;
     }
 }

@@ -21,10 +21,10 @@ public class FitnesCentar implements Serializable {
     @Column
     private String email;
 
-    @OneToMany(mappedBy = "fitnescentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trener> treneri = new HashSet<>();
 
-    @OneToMany(mappedBy = "fitnescentar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> sale = new HashSet<>();
 
     public Long getId() {
