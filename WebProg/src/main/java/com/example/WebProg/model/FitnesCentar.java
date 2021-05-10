@@ -27,6 +27,9 @@ public class FitnesCentar implements Serializable {
     @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Sala> sale = new HashSet<>();
 
+    @OneToMany(mappedBy = "fitnes_centar",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Termin> termini = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -73,5 +76,13 @@ public class FitnesCentar implements Serializable {
 
     public void setSale(Set<Sala> sale) {
         this.sale = sale;
+    }
+
+    public Set<Termin> getTermini() {
+        return termini;
+    }
+
+    public void setTermini(Set<Termin> termini) {
+        this.termini = termini;
     }
 }

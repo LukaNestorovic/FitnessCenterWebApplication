@@ -5,7 +5,6 @@ import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Termin implements Serializable {
     @Id
@@ -24,4 +23,43 @@ public class Termin implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Trening trening;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Double getCena() {
+        return cena;
+    }
+
+    public void setCena(Double cena) {
+        this.cena = cena;
+    }
+
+    public LocalDateTime getDatum_vreme() {
+        return datum_vreme;
+    }
+
+    public void setDatum_vreme(LocalDateTime datum_vreme) {
+        this.datum_vreme = datum_vreme;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public Trening getTrening() {
+        return trening;
+    }
+
+    public void setTrening(Trening trening) {
+        this.trening = trening;
+    }
 }
