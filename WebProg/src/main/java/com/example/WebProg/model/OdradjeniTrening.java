@@ -3,6 +3,7 @@ package com.example.WebProg.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
 public class OdradjeniTrening implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

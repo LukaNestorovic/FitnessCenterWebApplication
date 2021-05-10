@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Entity
 public class Termin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,9 @@ public class Termin implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Trening trening;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private FitnesCentar fitnes_centar;
 
     public Long getId() {
         return id;
@@ -61,5 +65,13 @@ public class Termin implements Serializable {
 
     public void setTrening(Trening trening) {
         this.trening = trening;
+    }
+
+    public FitnesCentar getFitnes_centar() {
+        return fitnes_centar;
+    }
+
+    public void setFitnes_centar(FitnesCentar fitnes_centar) {
+        this.fitnes_centar = fitnes_centar;
     }
 }
