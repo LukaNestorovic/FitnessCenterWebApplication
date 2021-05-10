@@ -89,4 +89,12 @@ public class Trening implements Serializable {
     public void setClan(Clan clan) {
         this.clan = clan;
     }
+
+    public Set<OdradjeniTrening> getOdradjeni_treninzi() {
+        return odradjeni_treninzi;
+    }
+
+    public void setOdradjeni_treninzi(Set<OdradjeniTrening> odradjeni_treninzi) {
+        this.odradjeni_treninzi = odradjeni_treninzi;
+    }
 }
