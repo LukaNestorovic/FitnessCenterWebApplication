@@ -2,11 +2,11 @@ package com.example.WebProg.model;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Trener implements Serializable {
     @Id
@@ -39,6 +39,12 @@ public class Trener implements Serializable {
 
     @Column
     private Boolean aktivan;
+
+    @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Trening> treninzi = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private FitnesCentar fitnes_centar;
 
     public Long getId() {
         return id;
@@ -118,5 +124,21 @@ public class Trener implements Serializable {
 
     public void setAktivan(Boolean aktivan) {
         this.aktivan = aktivan;
+    }
+
+    public Set<Trening> getTreninzi() {
+        return treninzi;
+    }
+
+    public void setTreninzi(Set<Trening> treninzi) {
+        this.treninzi = treninzi;
+    }
+
+    public FitnesCentar getFitnesCentar() {
+        return fitnes_centar;
+    }
+
+    public void setFitnesCentar(FitnesCentar fitnesCentar) {
+        this.fitnes_centar = fitnesCentar;
     }
 }

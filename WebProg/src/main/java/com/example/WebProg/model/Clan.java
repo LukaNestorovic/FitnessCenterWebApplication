@@ -1,12 +1,10 @@
 package com.example.WebProg.model;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Clan implements Serializable {
     @Id
@@ -39,6 +37,12 @@ public class Clan implements Serializable {
 
     @Column
     private Boolean aktivan;
+
+    @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Trening> odradjeni_treninzi = new HashSet<>();
+
+    @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Trening> prijavljeni_treninzi = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -118,5 +122,21 @@ public class Clan implements Serializable {
 
     public void setAktivan(Boolean aktivan) {
         this.aktivan = aktivan;
+    }
+
+    public Set<Trening> getOdradjeni_treninzi() {
+        return odradjeni_treninzi;
+    }
+
+    public void setOdradjeni_treninzi(Set<Trening> odradjeni_treninzi) {
+        this.odradjeni_treninzi = odradjeni_treninzi;
+    }
+
+    public Set<Trening> getPrijavljeni_treninzi() {
+        return prijavljeni_treninzi;
+    }
+
+    public void setPrijavljeni_treninzi(Set<Trening> prijavljeni_treninzi) {
+        this.prijavljeni_treninzi = prijavljeni_treninzi;
     }
 }

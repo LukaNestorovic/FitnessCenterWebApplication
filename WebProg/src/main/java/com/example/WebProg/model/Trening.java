@@ -2,9 +2,7 @@ package com.example.WebProg.model;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.io.Serializable;
 
 public class Trening implements Serializable {
@@ -23,6 +21,15 @@ public class Trening implements Serializable {
 
     @Column
     private Integer trajanje;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Trener trener;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Clan clan;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Sala sala;
 
     public Long getId() {
         return id;
@@ -62,5 +69,13 @@ public class Trening implements Serializable {
 
     public void setTrajanje(Integer trajanje) {
         this.trajanje = trajanje;
+    }
+
+    public Trener getTrener() {
+        return trener;
+    }
+
+    public void setTrener(Trener trener) {
+        this.trener = trener;
     }
 }
