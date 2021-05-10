@@ -2,6 +2,8 @@ package com.example.WebProg.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class OdradjeniTrening implements Serializable {
@@ -20,6 +22,9 @@ public class OdradjeniTrening implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Clan clanOcena;
+
+    @OneToMany(mappedBy = "odradjeni_trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Termin> termin = new HashSet<>();
 
     public Long getId() {
         return id;

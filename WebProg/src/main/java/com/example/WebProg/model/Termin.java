@@ -22,7 +22,7 @@ public class Termin implements Serializable {
     private Sala sala;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Trening trening;
+    private OdradjeniTrening odradjeni_trening;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private FitnesCentar fitnes_centar;

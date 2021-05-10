@@ -34,9 +34,6 @@ public class Trening implements Serializable {
     @OneToMany(mappedBy = "trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<OdradjeniTrening> odradjeni_treninzi = new HashSet<>();
 
-    @OneToMany(mappedBy = "trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Termin> termin = new HashSet<>();
-
     public Long getId() {
         return id;
     }
