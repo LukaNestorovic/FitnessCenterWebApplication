@@ -8,6 +8,9 @@ public class OdradjeniTrening implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
+    private Integer ocena;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Trening trening;
 
@@ -39,5 +42,21 @@ public class OdradjeniTrening implements Serializable {
 
     public void setClanOcena(Clan clanOcena) {
         this.clanOcena = clanOcena;
+    }
+
+    public Integer getOcena() {
+        return ocena;
+    }
+
+    public void setOcena(Integer ocena) {
+        this.ocena = ocena;
+    }
+
+    public Trening getTrening() {
+        return trening;
+    }
+
+    public void setTrening(Trening trening) {
+        this.trening = trening;
     }
 }

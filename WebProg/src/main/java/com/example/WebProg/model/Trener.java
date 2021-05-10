@@ -40,6 +40,9 @@ public class Trener implements Serializable {
     @Column
     private Boolean aktivan;
 
+    @Column
+    private Double prosecna_ocena;
+
     @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trening> treninzi = new HashSet<>();
 
@@ -140,5 +143,21 @@ public class Trener implements Serializable {
 
     public void setFitnesCentar(FitnesCentar fitnesCentar) {
         this.fitnes_centar = fitnesCentar;
+    }
+
+    public Double getProsecna_ocena() {
+        return prosecna_ocena;
+    }
+
+    public void setProsecna_ocena(Double prosecna_ocena) {
+        this.prosecna_ocena = prosecna_ocena;
+    }
+
+    public FitnesCentar getFitnes_centar() {
+        return fitnes_centar;
+    }
+
+    public void setFitnes_centar(FitnesCentar fitnes_centar) {
+        this.fitnes_centar = fitnes_centar;
     }
 }
