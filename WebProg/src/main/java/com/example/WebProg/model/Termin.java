@@ -59,19 +59,19 @@ public class Termin implements Serializable {
         this.sala = sala;
     }
 
-    public Trening getTrening() {
-        return trening;
-    }
-
-    public void setTrening(Trening trening) {
-        this.trening = trening;
-    }
-
     public FitnesCentar getFitnes_centar() {
         return fitnes_centar;
     }
 
     public void setFitnes_centar(FitnesCentar fitnes_centar) {
         this.fitnes_centar = fitnes_centar;
+    }
+
+    public OdradjeniTrening getOdradjeni_trening() {
+        return odradjeni_trening;
+    }
+
+    public void setOdradjeni_trening(OdradjeniTrening odradjeni_trening) {
+        this.odradjeni_trening = odradjeni_trening;
     }
 }

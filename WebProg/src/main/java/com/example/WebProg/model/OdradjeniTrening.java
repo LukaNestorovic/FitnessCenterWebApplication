@@ -65,4 +65,12 @@ public class OdradjeniTrening implements Serializable {
     public void setTrening(Trening trening) {
         this.trening = trening;
     }
+
+    public Set<Termin> getTermin() {
+        return termin;
+    }
+
+    public void setTermin(Set<Termin> termin) {
+        this.termin = termin;
+    }
 }
