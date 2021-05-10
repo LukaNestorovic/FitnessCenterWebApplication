@@ -30,11 +30,11 @@ public class Trening implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Clan clan;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Sala sala;
-
     @OneToMany(mappedBy = "trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<OdradjeniTrening> odradjeni_treninzi = new HashSet<>();
+
+    @OneToMany(mappedBy = "trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Termin> termin = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -82,14 +82,6 @@ public class Trening implements Serializable {
 
     public void setTrener(Trener trener) {
         this.trener = trener;
-    }
-
-    public Sala getSala() {
-        return sala;
-    }
-
-    public void setSala(Sala sala) {
-        this.sala = sala;
     }
 
     public Clan getClan() {
