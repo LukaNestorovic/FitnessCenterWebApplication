@@ -1,8 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="Registracija.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registracija</title>
+        <div class="container">
+            <h1>Registracija</h1>
+            <p>Popunite ovaj formular za registraciju</p>
+            <hr>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Unesite Email" name="email" required>
+
+            <label for="psw"><b>Sifra</b></label>
+            <input type="password" placeholder="Unesite sifru" name="psw" required>
+
+            <label for="psw-repeat"><b>Ponovite sifru</b></label>
+            <input type="password" placeholder="Ponovite sifru" name="psw-repeat" required>
+
+            <label for="koime"><b>Korisnicko ime</b></label>
+            <input type="text" placeholder="Unesite korisnicko ime" name="koime" required>
+
+            <label for="ime"><b>Ime</b></label>
+            <input type="text" placeholder="Unesite ime" name="ime" required>
+
+            <label for="email"><b>Prezime</b></label>
+            <input type="text" placeholder="Unesite prezime" name="email" required>
+
+            <label for="kotel"><b>Kontakt telefon</b></label>
+            <input type="text" placeholder="Unesite kontakt telefon" name="kotel" required>
+
+            <label for="darodj"><b>Datum rodjenja</b></label>
+            <input type="date" name="darodj" required>
+            <br>
+
+            <label for="uloga"><b>Izaberite ulogu</b></label>
+            <select name="uloga" id="uloga" multiple>
+                <option value="Trener">Trener</option>
+                <option value="Clan">Clan</option>
+            </select>
+
+            <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Zapamti me
+            </label>
+
+            <div class="clearfix">
+                <button type="button" class="cancelbtn">Nazad</button>
+                <button type="submit" class="signupbtn">Registruj se</button>
+            </div>
+        </div>
+    </form>
 </head>
 <body>
 
