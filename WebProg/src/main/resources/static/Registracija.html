@@ -31,14 +31,16 @@
             <input type="text" placeholder="Unesite kontakt telefon" name="kotel" required>
 
             <label for="darodj"><b>Datum rodjenja</b></label>
-            <input type="date" name="darodj" required>
-            <br>
+            <input type="date" style="height: 35px" name="darodj" required>
+            <br><br>
 
-            <label for="uloga"><b>Izaberite ulogu</b></label>
-            <select name="uloga" id="uloga" multiple>
-                <option value="Trener">Trener</option>
-                <option value="Clan">Clan</option>
-            </select>
+            <div class="custom-select">
+                <select>
+                    <option value="0">Izaberite ulogu:</option>
+                    <option value="1">Trener</option>
+                    <option value="1">Clan</option>
+                </select>
+            </div><br>
 
             <label>
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Zapamti me
