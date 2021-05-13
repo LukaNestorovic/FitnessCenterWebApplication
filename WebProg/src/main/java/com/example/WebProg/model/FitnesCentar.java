@@ -1,7 +1,5 @@
 package com.example.WebProg.model;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -21,6 +19,9 @@ public class FitnesCentar implements Serializable {
 
     @Column
     private String email;
+
+    @Column
+    private String broj_telefona;
 
     @OneToMany(mappedBy = "fitnes_centar", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trener> treneri = new HashSet<>();
@@ -61,6 +62,14 @@ public class FitnesCentar implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getBroj_telefona() {
+        return broj_telefona;
+    }
+
+    public void setBroj_telefona(String broj_telefona) {
+        this.broj_telefona = broj_telefona;
     }
 
     public Set<Trener> getTreneri() {

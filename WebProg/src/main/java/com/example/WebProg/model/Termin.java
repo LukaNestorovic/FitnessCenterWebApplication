@@ -1,7 +1,5 @@
 package com.example.WebProg.model;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -20,6 +18,9 @@ public class Termin implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Sala sala;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Clan clan;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private OdradjeniTrening odradjeni_trening;
@@ -73,5 +74,13 @@ public class Termin implements Serializable {
 
     public void setOdradjeni_trening(OdradjeniTrening odradjeni_trening) {
         this.odradjeni_trening = odradjeni_trening;
+    }
+
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
     }
 }
