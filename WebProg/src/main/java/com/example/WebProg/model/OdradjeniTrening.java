@@ -23,8 +23,8 @@ public class OdradjeniTrening implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Clan clanOcena;
 
-    @OneToMany(mappedBy = "odradjeni_trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Termin> termin = new HashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Termin termin;
 
     public Long getId() {
         return id;
@@ -66,11 +66,11 @@ public class OdradjeniTrening implements Serializable {
         this.trening = trening;
     }
 
-    public Set<Termin> getTermin() {
+    public Termin getTermin() {
         return termin;
     }
 
-    public void setTermin(Set<Termin> termin) {
+    public void setTermin(Termin termin) {
         this.termin = termin;
     }
 }

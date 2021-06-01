@@ -29,6 +29,9 @@ public class Trening implements Serializable {
     @OneToMany(mappedBy = "trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<OdradjeniTrening> odradjeni_treninzi = new HashSet<>();
 
+    @OneToMany(mappedBy = "trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Termin> termini = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -83,5 +86,13 @@ public class Trening implements Serializable {
 
     public void setOdradjeni_treninzi(Set<OdradjeniTrening> odradjeni_treninzi) {
         this.odradjeni_treninzi = odradjeni_treninzi;
+    }
+
+    public Set<Termin> getTermini() {
+        return termini;
+    }
+
+    public void setTermini(Set<Termin> termini) {
+        this.termini = termini;
     }
 }

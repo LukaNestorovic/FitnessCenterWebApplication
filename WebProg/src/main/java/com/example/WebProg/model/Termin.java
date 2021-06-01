@@ -3,6 +3,8 @@ package com.example.WebProg.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Termin implements Serializable {
@@ -22,11 +24,14 @@ public class Termin implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Clan clan;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private OdradjeniTrening odradjeni_trening;
+    @OneToMany(mappedBy = "termin",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<OdradjeniTrening> odradjeni_treninzi = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private FitnesCentar fitnes_centar;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Trening trening;
 
     public Long getId() {
         return id;
@@ -68,19 +73,27 @@ public class Termin implements Serializable {
         this.fitnes_centar = fitnes_centar;
     }
 
-    public OdradjeniTrening getOdradjeni_trening() {
-        return odradjeni_trening;
-    }
-
-    public void setOdradjeni_trening(OdradjeniTrening odradjeni_trening) {
-        this.odradjeni_trening = odradjeni_trening;
-    }
-
     public Clan getClan() {
         return clan;
     }
 
     public void setClan(Clan clan) {
         this.clan = clan;
+    }
+
+    public Set<OdradjeniTrening> getOdradjeni_treninzi() {
+        return odradjeni_treninzi;
+    }
+
+    public void setOdradjeni_treninzi(Set<OdradjeniTrening> odradjeni_treninzi) {
+        this.odradjeni_treninzi = odradjeni_treninzi;
+    }
+
+    public Trening getTrening() {
+        return trening;
+    }
+
+    public void setTrening(Trening trening) {
+        this.trening = trening;
     }
 }
