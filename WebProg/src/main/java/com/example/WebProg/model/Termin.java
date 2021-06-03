@@ -33,6 +33,12 @@ public class Termin implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Trening trening;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Clan odradjeni_trening;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Clan ocena;
+
     public Long getId() {
         return id;
     }
@@ -95,5 +101,21 @@ public class Termin implements Serializable {
 
     public void setTrening(Trening trening) {
         this.trening = trening;
+    }
+
+    public Clan getOdradjeni_trening() {
+        return odradjeni_trening;
+    }
+
+    public void setOdradjeni_trening(Clan odradjeni_trening) {
+        this.odradjeni_trening = odradjeni_trening;
+    }
+
+    public Clan getOcena() {
+        return ocena;
+    }
+
+    public void setOcena(Clan ocena) {
+        this.ocena = ocena;
     }
 }
