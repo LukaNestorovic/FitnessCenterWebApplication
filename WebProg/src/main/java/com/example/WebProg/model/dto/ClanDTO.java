@@ -2,7 +2,7 @@ package com.example.WebProg.model.dto;
 
 import java.util.Date;
 
-public class TrenerDTO {
+public class ClanDTO {
     private Long id;
     private String korisnicko_ime;
     private String lozinka;
@@ -13,10 +13,10 @@ public class TrenerDTO {
     private Date datum_rodjenja;
     private String uloga;
 
-    public TrenerDTO() {
+    public ClanDTO() {
     }
 
-    public TrenerDTO(Long id, String korisnicko_ime, String lozinka, String ime, String prezime, String kontakt_telefon, String email, Date datum_rodjenja, String uloga){
+    public ClanDTO(Long id, String korisnicko_ime, String lozinka, String ime, String prezime, String kontakt_telefon, String email, Date datum_rodjenja, String uloga){
         this.id = id;
         this.korisnicko_ime = korisnicko_ime;
         this.lozinka = lozinka;

@@ -48,6 +48,20 @@ public class Trener implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private FitnesCentar fitnes_centar;
 
+    public Trener(){
+    }
+
+    public Trener(String korisnicko_ime, String lozinka, String ime, String prezime, String kontakt_telefon, String email, Date datum_rodjenja, String uloga){
+        this.korisnicko_ime = korisnicko_ime;
+        this.lozinka = lozinka;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.kontakt_telefon = kontakt_telefon;
+        this.email = email;
+        this.datum_rodjenja = datum_rodjenja;
+        this.uloga = uloga;
+    }
+
     public Long getId() {
         return id;
     }

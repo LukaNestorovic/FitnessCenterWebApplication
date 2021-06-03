@@ -32,6 +32,16 @@ public class FitnesCentar implements Serializable {
     @OneToMany(mappedBy = "fitnes_centar",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> termini = new HashSet<>();
 
+    public FitnesCentar(){
+    }
+
+    public FitnesCentar(String naziv, String adresa, String email, String broj_telefona){
+        this.naziv = naziv;
+        this.adresa = adresa;
+        this.email = email;
+        this.broj_telefona = broj_telefona;
+    }
+
     public Long getId() {
         return id;
     }
