@@ -24,7 +24,7 @@ public class FitnesCentarController {
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TreningDTO> getFitnesCentar(@PathVariable("id") Long id) {
+    public ResponseEntity<FitnesCentarDTO> getFitnesCentar(@PathVariable("id") Long id) {
         FitnesCentar fitnesCentar = this.fitnesCentarService.findOne(id);
 
         FitnesCentarDTO fitnesCentarDTO = new FitnesCentarDTO();
