@@ -1,10 +1,7 @@
 package com.example.WebProg.controller;
 
-import com.example.WebProg.model.Clan;
 import com.example.WebProg.model.Trener;
-import com.example.WebProg.model.dto.ClanDTO;
 import com.example.WebProg.model.dto.TrenerDTO;
-import com.example.WebProg.service.RegistracijaClanaService;
 import com.example.WebProg.service.RegistracijaTreneraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
