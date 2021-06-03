@@ -42,7 +42,7 @@ public class Clan implements Serializable {
     @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> odradjeni_treninzi = new HashSet<>();
 
-    @OneToMany(mappedBy = "clanOcena",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "clan",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> ocena = new HashSet<>();
 
     @OneToMany(mappedBy = "clan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
