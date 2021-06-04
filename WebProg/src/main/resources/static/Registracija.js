@@ -5,7 +5,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (res) {
 
-            for (i = 0; i < res.lenght; i++) {
+            for (i = 0; i < res.length; i++) {
                 let row = "<tr>";
                 row += "<td>" + res[i].email + "</td>";
                 row += "<td>" + res[i].lozinka + "</td>";
@@ -15,6 +15,7 @@ $(document).ready(function () {
                 row += "<td>" + res[i].kontakt_telefon + "</td>";
                 row += "<td>" + res[i].datum_rodjenja + "</td>";
                 row += "<td>" + res[i].uloga + "</td>";
+                row += "</tr>";
 
                 $('#treneri').append(row);
             }
