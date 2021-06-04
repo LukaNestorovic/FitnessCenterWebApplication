@@ -2,43 +2,43 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="Registracija.css">
+    <script src="jquery.min.js"></script>
+    <script src="Registracija.js"></script>
     <meta charset="UTF-8">
     <title>Registracija</title>
         <div class="container">
             <h1>Registracija</h1>
+            <form id="dodajTreneraForm">
             <p>Popunite ovaj formular za registraciju</p>
             <hr>
 
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Unesite Email" name="email" required>
 
-            <label for="psw"><b>Sifra</b></label>
-            <input type="password" placeholder="Unesite sifru" name="psw" required>
+            <label for="lozinka"><b>Sifra</b></label>
+            <input type="password" placeholder="Unesite sifru" name="lozinka" required>
 
-            <label for="psw-repeat"><b>Ponovite sifru</b></label>
-            <input type="password" placeholder="Ponovite sifru" name="psw-repeat" required>
-
-            <label for="koime"><b>Korisnicko ime</b></label>
-            <input type="text" placeholder="Unesite korisnicko ime" name="koime" required>
+            <label for="korisnicko_ime"><b>Korisnicko ime</b></label>
+            <input type="text" placeholder="Unesite korisnicko ime" name="korisnicko_ime" required>
 
             <label for="ime"><b>Ime</b></label>
             <input type="text" placeholder="Unesite ime" name="ime" required>
 
-            <label for="email"><b>Prezime</b></label>
-            <input type="text" placeholder="Unesite prezime" name="email" required>
+            <label for="prezime"><b>Prezime</b></label>
+            <input type="text" placeholder="Unesite prezime" name="prezime" required>
 
-            <label for="kotel"><b>Kontakt telefon</b></label>
-            <input type="text" placeholder="Unesite kontakt telefon" name="kotel" required>
+            <label for="kontakt_telefon"><b>Kontakt telefon</b></label>
+            <input type="text" placeholder="Unesite kontakt telefon" name="kontakt_telefon" required>
 
-            <label for="darodj"><b>Datum rodjenja</b></label>
-            <input type="date" style="height: 35px" name="darodj" required>
+            <label for="datum_rodjenja"><b>Datum rodjenja</b></label>
+            <input type="date" style="height: 35px" name="datum_rodjenja" required>
             <br><br>
 
             <div class="custom-select">
-                <select>
+                <select id="uloga">
                     <option value="0">Izaberite ulogu:</option>
                     <option value="1">Trener</option>
-                    <option value="1">Clan</option>
+                    <option value="2">Clan</option>
                 </select>
             </div><br>
 
