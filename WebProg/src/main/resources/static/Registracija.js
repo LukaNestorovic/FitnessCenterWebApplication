@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/registracijatrenera/",
+        url: "http://localhost:8080/api/registracijatrenera",
         dataType: "json",
         success: function (res) {
 
