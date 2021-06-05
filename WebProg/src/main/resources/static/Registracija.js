@@ -30,12 +30,12 @@ $(document).on("submit", "#dodajTreneraForm", function (event) {
     event.preventDefault();
     let email = $("#email").val();
     let lozinka = $("#lozinka").val();
-    let korisnicko_ime = $("#koriscniko_ime").val();
+    let korisnicko_ime = $("#korisnicko_ime").val();
     let ime = $("#ime").val();
     let prezime = $("#prezime").val();
     let kontakt_telefon = $("#kontakt_telefon").val();
     let datum_rodjenja = $("#datum_rodjenja").val();
-    let uloga = $("#uloga:selected").val();
+    let uloga = $("#uloga :selected").val();
 
     let newTrener = {
         email,
