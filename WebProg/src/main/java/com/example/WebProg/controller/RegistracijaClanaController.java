@@ -28,7 +28,7 @@ public class RegistracijaClanaController {
 
         ClanDTO clanDTO = new ClanDTO();
         clanDTO.setId(clan.getId());
-        clanDTO.setKorisnicko_ime(clan.getKorisnicko_ime());
+        clanDTO.setKorisnickoIme(clan.getkorisnickoIme());
         clanDTO.setLozinka(clan.getLozinka());
         clanDTO.setIme(clan.getIme());
         clanDTO.setPrezime(clan.getPrezime());
@@ -47,7 +47,7 @@ public class RegistracijaClanaController {
         List<ClanDTO> clanDTOS = new ArrayList<>();
 
         for(Clan clan: clanList) {
-            ClanDTO clanDTO = new ClanDTO(clan.getId(), clan.getKorisnicko_ime(), clan.getLozinka(), clan.getIme(), clan.getPrezime(), clan.getKontakt_telefon(), clan.getEmail(), clan.getDatum_rodjenja(), clan.getUloga());
+            ClanDTO clanDTO = new ClanDTO(clan.getId(), clan.getkorisnickoIme(), clan.getLozinka(), clan.getIme(), clan.getPrezime(), clan.getKontakt_telefon(), clan.getEmail(), clan.getDatum_rodjenja(), clan.getUloga());
             clanDTOS.add(clanDTO);
         }
 
@@ -56,11 +56,11 @@ public class RegistracijaClanaController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws Exception {
-        Clan clan = new Clan(clanDTO.getKorisnicko_ime(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getKontakt_telefon(), clanDTO.getEmail(), clanDTO.getDatum_rodjenja(), clanDTO.getUloga());
+        Clan clan = new Clan(clanDTO.getKorisnickoIme(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getKontakt_telefon(), clanDTO.getEmail(), clanDTO.getDatum_rodjenja(), clanDTO.getUloga());
 
         Clan newClan = registracijaClanaService.create(clan);
 
-        ClanDTO newClanDTO = new ClanDTO(newClan.getId(), newClan.getKorisnicko_ime(), newClan.getLozinka(), newClan.getIme(), newClan.getPrezime(), newClan.getKontakt_telefon(), newClan.getEmail(), newClan.getDatum_rodjenja(), newClan.getUloga());
+        ClanDTO newClanDTO = new ClanDTO(newClan.getId(), newClan.getkorisnickoIme(), newClan.getLozinka(), newClan.getIme(), newClan.getPrezime(), newClan.getKontakt_telefon(), newClan.getEmail(), newClan.getDatum_rodjenja(), newClan.getUloga());
 
         return new ResponseEntity<>(newClanDTO, HttpStatus.CREATED);
     }

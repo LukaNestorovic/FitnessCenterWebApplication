@@ -1,8 +1,7 @@
 package com.example.WebProg.service;
 
 import com.example.WebProg.model.Clan;
-import com.example.WebProg.model.Clan;
-import com.example.WebProg.repository.ClanRepository;
+import com.example.WebProg.repository.RegistracijaClanaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +11,15 @@ import java.util.List;
 public class RegistracijaClanaService {
 
     @Autowired
-    private ClanRepository clanRepository;
+    private RegistracijaClanaRepository registracijaClanaRepository;
 
     public Clan findOne(Long id) {
-        Clan clan = this.clanRepository.getOne(id);
+        Clan clan = this.registracijaClanaRepository.getOne(id);
         return clan;
     }
 
     public List<Clan> findAll() {
-        List<Clan> clans = this.clanRepository.findAll();
+        List<Clan> clans = this.registracijaClanaRepository.findAll();
         return clans;
     }
 
@@ -28,7 +27,7 @@ public class RegistracijaClanaService {
         if (clan.getId() != null) {
             throw new Exception("ID must be null!");
         }
-        Clan newClan = this.clanRepository.save(clan);
+        Clan newClan = this.registracijaClanaRepository.save(clan);
         return newClan;
     }
 

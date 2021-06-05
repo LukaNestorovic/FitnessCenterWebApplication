@@ -8,6 +8,9 @@ Insert into Fitnes_Centar (naziv,adresa,email,broj_telefona) values ('FitnesCent
 Insert into Trener (korisnicko_ime,lozinka,ime,prezime,kontakt_telefon,email,datum_rodjenja,uloga,aktivan,prosecna_ocena,fitnes_centar_id) values ('Luka123','123123','Luka','Nestorovic','065444','luka@gmail.com','2001-02-12','Trener',true,5,1);
 
 Insert into Trening (naziv,opis,tip_treninga,trajanje,trener_id) values ('Kardio','Trcanje','Kardio',2,1);
+Insert into Trening (naziv,opis,tip_treninga,trajanje,trener_id) values ('Limbo','Provlacenje','Limbo',3,1);
+Insert into Trening (naziv,opis,tip_treninga,trajanje,trener_id) values ('Aerobik','Istezanje','Aerobik',1,1);
+
 
 Insert into Sala (kapacitet,oznaka_sale,fitnes_centar_id) values (200,'101',1);
 

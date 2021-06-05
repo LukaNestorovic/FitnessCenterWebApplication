@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="LoginKorisnika.css">
     <meta charset="UTF-8">
     <title>LogIn</title>
+        <form th:action="@{/login-check}" th:object="${user}" method="get">
         <div class="imgcontainer">
             <img src="avatar.jpeg" alt="Avatar" class="avatar">
         </div>
@@ -25,6 +26,7 @@
             <button type="button" class="cancelbtn">Nazad</button>
         </div>
         <a type="button" href="Registracija.html" class="btn">Nemas nalog? Registruj se</a>
+        </form>
 </head>
 <body style = "background-color: #a2b9bc;">
 
