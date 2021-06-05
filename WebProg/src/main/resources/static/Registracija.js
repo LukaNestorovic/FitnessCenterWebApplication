@@ -37,54 +37,58 @@ $(document).on("submit", "#dodajTreneraForm", function (event) {
     let datum_rodjenja = $("#datum_rodjenja").val();
     let uloga = $("#uloga :selected").val();
 
-    let newTrener = {
-        email,
-        lozinka,
-        korisnicko_ime,
-        ime,
-        prezime,
-        kontakt_telefon,
-        datum_rodjenja,
-        uloga
-    }
+    if(uloga === "Trener") {
 
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/api/registracijatrenera",
-        dataType: "json",
-        contentType: "application/json",
-        data: JSON.stringify(newTrener),
-        success: function (res) {
-            alert("Trener " + res.id + " je uspešno kreiran!");
-            window.location.href = "Treneri.html";
-        },
-        error: function () {
-            alert("Greška prilikom dodavanja trenera!");
+        let newTrener = {
+            email,
+            lozinka,
+            korisnicko_ime,
+            ime,
+            prezime,
+            kontakt_telefon,
+            datum_rodjenja,
+            uloga
         }
-    });
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/registracijatrenera",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(newTrener),
+            success: function (res) {
+                alert("Trener " + res.id + " je uspešno kreiran!");
+                window.location.href = "Treneri.html";
+            },
+            error: function () {
+                alert("Greška prilikom dodavanja trenera!");
+            }
+        });
+    } else if (uloga === "Clan") {
+
+        let newClan = {
+            email,
+            lozinka,
+            korisnicko_ime,
+            ime,
+            prezime,
+            kontakt_telefon,
+            datum_rodjenja,
+            uloga
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/registracijaclana",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(newClan),
+            success: function (res) {
+                alert("Clan " + res.id + " je uspešno kreiran!");
+            },
+            error: function () {
+                alert("Greška prilikom dodavanja clana!");
+            }
+        });
+    }
 });
-
- /*   let newEmployee = {
-        firstName,
-        lastName,
-        position: jobPosition     // zbog backend-a jobPosition moramo preimenovati u atribut position
-    }
-
-    // ajax poziv za kreiranje novog zaposlenog na backend-u
-    $.ajax({
-        type: "POST",                                               // HTTP metoda je POST
-        url: "http://localhost:8080/api/employees",                 // URL na koji se šalju podaci
-        dataType: "json",                                           // tip povratne vrednosti
-        contentType: "application/json",                            // tip podataka koje šaljemo
-        data: JSON.stringify(newEmployee),                          // u body-ju šaljemo novog zaposlenog (JSON.stringify() pretvara JavaScript objekat u JSON)
-        success: function (response) {                              // ova f-ja se izvršava posle uspešnog zahteva
-        console.log(response);                                  // ispisujemo u konzoli povratnu vrednost radi provere
-
-        alert("Radnik " + response.id + " je uspešno kreiran!");// prikazujemo poruku uspeha korisniku
-        window.location.href = "employees.html";                // redirektujemo ga na employees.html stranicu
-        },
-        error: function () {                                        // ova f-ja se izvršava posle neuspešnog zahteva
-            alert("Greška prilikom dodavanja zaposlenog!");
-        }
-    });
-});*/

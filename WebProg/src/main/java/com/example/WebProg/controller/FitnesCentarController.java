@@ -2,7 +2,6 @@ package com.example.WebProg.controller;
 
 import com.example.WebProg.model.FitnesCentar;
 import com.example.WebProg.model.dto.FitnesCentarDTO;
-import com.example.WebProg.model.dto.TreningDTO;
 import com.example.WebProg.service.FitnesCentarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
