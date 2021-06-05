@@ -8,9 +8,9 @@ $(document).ready(function () {
             for (i = 0; i < res.length; i++) {
                 let row = "<tr>";
                 row += "<td>" + res[i].naziv + "</td>";
-                row += "<td>" + res[i].opis + "</td>";
-                row += "<td>" + res[i].tip_treninga + "</td>";
-                row += "<td>" + res[i].trajanje + "</td>";
+                row += "<th>" + res[i].opis + "</th>";
+                row += "<th>" + res[i].tip_treninga + "</th>";
+                row += "<th>" + res[i].trajanje + "</th>";
                 row += "</tr>";
 
                 $('#treninzi').append(row);
