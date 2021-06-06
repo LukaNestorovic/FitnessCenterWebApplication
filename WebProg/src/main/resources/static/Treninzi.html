@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        #myInput {
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+    </style>
     <title>Treninzi</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="Treninzi.css" />
@@ -11,6 +22,7 @@
 <div id="sviTreninzi">
     <h1>Treninzi</h1>
     <p><button onclick="sortTable()">Sortiraj po imenu</button></p>
+    <input id="myInput" type="text" placeholder="Trazi">
     <br><br>
     <div class="container">
         <table id="treninzi">
@@ -46,6 +58,16 @@
             }
         }
     }
+
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#treninzi tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 </script>
+
 </body>
 </html>
