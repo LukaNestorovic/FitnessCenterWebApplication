@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/treninzi",
+        url: "http://localhost:8080/api/termini",
         dataType: "json",
         success: function (res) {
 
@@ -11,7 +11,7 @@ $(document).ready(function () {
                 row += "<th>" + res[i].datum_vreme + "</th>";
                 row += "</tr>";
 
-                $('#treninzi').append(row);
+                $('#termini').append(row);
             }
         },
         error: function (res) {

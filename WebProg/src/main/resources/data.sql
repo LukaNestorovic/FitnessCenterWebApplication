@@ -15,5 +15,7 @@ Insert into Trening (naziv,opis,tip_treninga,trajanje,trener_id) values ('Aerobi
 Insert into Sala (kapacitet,oznaka_sale,fitnes_centar_id) values (200,'101',1);
 
 Insert into Termin (cena,datum_vreme,fitnes_centar_id,trening_id,odradjeni_trening_id,ocena_id,clan_id,sala_id) values (500,'2021-05-01',1,1,1,1,1,1);
+Insert into Termin (cena,datum_vreme,fitnes_centar_id,trening_id,odradjeni_trening_id,ocena_id,clan_id,sala_id) values (1000,'2021-05-03',1,1,1,1,1,1);
+
 
 Insert into Odradjeni_Trening (ocena,trening_id,termin_id) values (5,1,1);
