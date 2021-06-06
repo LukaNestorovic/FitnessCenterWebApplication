@@ -28,7 +28,7 @@ public class RegistracijaClanaController {
 
         ClanDTO clanDTO = new ClanDTO();
         clanDTO.setId(clan.getId());
-        clanDTO.setKorisnickoIme(clan.getkorisnickoIme());
+        clanDTO.setkorisnicko_ime(clan.getkorisnickoIme());
         clanDTO.setLozinka(clan.getLozinka());
         clanDTO.setIme(clan.getIme());
         clanDTO.setPrezime(clan.getPrezime());
@@ -56,7 +56,7 @@ public class RegistracijaClanaController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws Exception {
-        Clan clan = new Clan(clanDTO.getKorisnickoIme(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getKontakt_telefon(), clanDTO.getEmail(), clanDTO.getDatum_rodjenja(), clanDTO.getUloga());
+        Clan clan = new Clan(clanDTO.getkorisnicko_ime(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getKontakt_telefon(), clanDTO.getEmail(), clanDTO.getDatum_rodjenja(), clanDTO.getUloga());
 
         Clan newClan = registracijaClanaService.create(clan);
 

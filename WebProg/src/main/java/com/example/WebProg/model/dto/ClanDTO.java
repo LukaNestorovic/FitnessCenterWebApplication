@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ClanDTO {
     private Long id;
-    private String korisnickoIme;
+    private String korisnicko_ime;
     private String lozinka;
     private String ime;
     private String prezime;
@@ -16,9 +16,9 @@ public class ClanDTO {
     public ClanDTO() {
     }
 
-    public ClanDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String kontakt_telefon, String email, Date datum_rodjenja, String uloga){
+    public ClanDTO(Long id, String korisnicko_ime, String lozinka, String ime, String prezime, String kontakt_telefon, String email, Date datum_rodjenja, String uloga){
         this.id = id;
-        this.korisnickoIme = korisnickoIme;
+        this.korisnicko_ime = korisnicko_ime;
         this.lozinka = lozinka;
         this.ime = ime;
         this.prezime = prezime;
@@ -36,12 +36,12 @@ public class ClanDTO {
         this.id = id;
     }
 
-    public String getKorisnickoIme() {
-        return korisnickoIme;
+    public String getkorisnicko_ime() {
+        return korisnicko_ime;
     }
 
-    public void setKorisnickoIme(String korisnickoIme) {
-        this.korisnickoIme = korisnickoIme;
+    public void setkorisnicko_ime(String korisnicko_ime) {
+        this.korisnicko_ime = korisnicko_ime;
     }
 
     public String getLozinka() {
