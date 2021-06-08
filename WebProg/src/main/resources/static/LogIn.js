@@ -15,7 +15,7 @@ $(document).on("submit", "#logInForm", function (event) {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/api/login",
+            url: "http://localhost:8080/api/logintrenera",
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify(newTrener),
@@ -35,7 +35,7 @@ $(document).on("submit", "#logInForm", function (event) {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/api/login",
+            url: "http://localhost:8080/api/loginclana",
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify(newClan),

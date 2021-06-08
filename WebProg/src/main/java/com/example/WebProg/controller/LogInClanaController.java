@@ -42,7 +42,7 @@ public class LogInClanaController {
                 return new ResponseEntity<>(clanDTO3, HttpStatus.NOT_FOUND);
             }
         }
-        return new ResponseEntity<>(clanDTO3, HttpStatus.OK);
+        return new ResponseEntity<>(clanDTO3, HttpStatus.NOT_FOUND);
     }
 
 

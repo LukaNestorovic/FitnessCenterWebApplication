@@ -11,16 +11,15 @@ import java.util.List;
 @Service
 public class LogInClanaService {
     @Autowired
-    private RegistracijaClanaRepository registracijaClanaRepository;
     private ClanRepository clanRepository;
 
     public Clan findOne(Long id) {
-        Clan clan = this.registracijaClanaRepository.getOne(id);
+        Clan clan = this.clanRepository.getOne(id);
         return clan;
     }
 
     public List<Clan> findAll() {
-        List<Clan> clans = this.registracijaClanaRepository.findAll();
+        List<Clan> clans = this.clanRepository.findAll();
         return clans;
     }
 }

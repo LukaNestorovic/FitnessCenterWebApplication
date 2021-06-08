@@ -12,15 +12,14 @@ import java.util.List;
 public class LogInTreneraService {
     @Autowired
     private TrenerRepository trenerRepository;
-    private RegistracijaTreneraRepository registracijaTreneraRepository;
 
     public Trener findOne(Long id) {
-        Trener trener = this.registracijaTreneraRepository.getOne(id);
+        Trener trener = this.trenerRepository.getOne(id);
         return trener;
     }
 
     public List<Trener> findAll() {
-        List<Trener> treners = this.registracijaTreneraRepository.findAll();
+        List<Trener> treners = this.trenerRepository.findAll();
         return treners;
     }
 }
