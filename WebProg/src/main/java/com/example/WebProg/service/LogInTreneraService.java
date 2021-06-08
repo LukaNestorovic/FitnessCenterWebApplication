@@ -1,27 +1,26 @@
 package com.example.WebProg.service;
 
 import com.example.WebProg.model.Trener;
+import com.example.WebProg.repository.RegistracijaTreneraRepository;
 import com.example.WebProg.repository.TrenerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class LogInTreneraService {
     @Autowired
     private TrenerRepository trenerRepository;
-
-    public Trener findByKorisnicko_ime(String korisnicko_ime){
-        Trener trener = this.trenerRepository.findByKorisnicko_ime(korisnicko_ime);
-        return trener;
-    }
+    private RegistracijaTreneraRepository registracijaTreneraRepository;
 
     public Trener findOne(Long id) {
-        Trener trener = this.trenerRepository.getOne(id);
+        Trener trener = this.registracijaTreneraRepository.getOne(id);
         return trener;
     }
 
     public List<Trener> findAll() {
-        List<Trener> treners = this.trenerRepository.findAll();
+        List<Trener> treners = this.registracijaTreneraRepository.findAll();
         return treners;
     }
 }

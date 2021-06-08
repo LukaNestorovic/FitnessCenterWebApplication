@@ -8,14 +8,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/api/loginclana")
 public class LogInClanaController {
     private final LogInClanaService logInClanaService;
 
@@ -25,17 +25,25 @@ public class LogInClanaController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ClanDTO2>> getClan() {
+    public ResponseEntity<ClanDTO2> getClan(@RequestBody ClanDTO2 clanDTO2) {
+        ClanDTO2 clanDTO3 = new ClanDTO2(clanDTO2.getId(), clanDTO2.getKorisnicko_ime(), clanDTO2.getLozinka());
         List<Clan> clanList = this.logInClanaService.findAll();
 
-        List<ClanDTO2> clanDTOS = new ArrayList<>();
-
         for(Clan clan: clanList) {
-            ClanDTO2 clanDTO = new ClanDTO2(clan.getId(), clan.getkorisnickoIme(), clan.getLozinka());
-            clanDTOS.add(clanDTO);
+            if(clan.getkorisnickoIme().equals(clanDTO3.getKorisnicko_ime())){
+                if(clan.getLozinka().equals(clanDTO3.getLozinka())) {
+                    return new ResponseEntity<>(clanDTO3, HttpStatus.OK);
+                }
+                else {
+                    return new ResponseEntity<>(clanDTO3, HttpStatus.BAD_REQUEST);
+                }
+                }
+            else {
+                return new ResponseEntity<>(clanDTO3, HttpStatus.NOT_FOUND);
+            }
         }
-
-        return new ResponseEntity<>(clanDTOS, HttpStatus.OK);
+        return new ResponseEntity<>(clanDTO3, HttpStatus.OK);
     }
+
 
 }

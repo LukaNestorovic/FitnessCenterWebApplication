@@ -15,7 +15,7 @@ $(document).on("submit", "#logInForm", function (event) {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/login",
+            url: "http://localhost:8080/api/login",
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify(newTrener),
@@ -23,7 +23,6 @@ $(document).on("submit", "#logInForm", function (event) {
                 alert("AAAAA");
             },
             error: function () {
-                alert("Error");
             }
         });
     } else if (uloga === "Clan") {
@@ -36,7 +35,7 @@ $(document).on("submit", "#logInForm", function (event) {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/login",
+            url: "http://localhost:8080/api/login",
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify(newClan),
@@ -44,7 +43,6 @@ $(document).on("submit", "#logInForm", function (event) {
                 alert("BBBBB");
             },
             error: function () {
-                alert("Error");
             }
         });
     }

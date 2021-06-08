@@ -14,11 +14,6 @@ public class LogInClanaService {
     private RegistracijaClanaRepository registracijaClanaRepository;
     private ClanRepository clanRepository;
 
-    public Clan findByKorisnickoIme(String korisnickoIme){
-        Clan clan = this.clanRepository.findByKorisnickoIme(korisnickoIme);
-        return clan;
-    }
-
     public Clan findOne(Long id) {
         Clan clan = this.registracijaClanaRepository.getOne(id);
         return clan;
@@ -28,5 +23,4 @@ public class LogInClanaService {
         List<Clan> clans = this.registracijaClanaRepository.findAll();
         return clans;
     }
-
 }

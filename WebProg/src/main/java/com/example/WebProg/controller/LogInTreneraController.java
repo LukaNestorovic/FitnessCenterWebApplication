@@ -8,14 +8,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/api/logintrenera")
 public class LogInTreneraController {
     private final LogInTreneraService logInTreneraService;
 
@@ -25,16 +25,23 @@ public class LogInTreneraController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TrenerDTO2>> getTrener() {
+    public ResponseEntity<TrenerDTO2> getTrener(@RequestBody TrenerDTO2 trenerDTO2){
+        TrenerDTO2 trenerDTO3 = new TrenerDTO2(trenerDTO2.getId(), trenerDTO2.getKorisnicko_ime(), trenerDTO2.getLozinka());
         List<Trener> trenerList = this.logInTreneraService.findAll();
 
-        List<TrenerDTO2> trenerDTOS = new ArrayList<>();
-
-        for(Trener trener: trenerList) {
-            TrenerDTO2 trenerDTO = new TrenerDTO2(trener.getId(), trener.getKorisnicko_ime(), trener.getLozinka());
-            trenerDTOS.add(trenerDTO);
+        for(Trener trener : trenerList){
+            if(trener.getKorisnicko_ime().equals(trenerDTO3.getKorisnicko_ime())){
+                if(trener.getLozinka().equals(trenerDTO3.getLozinka())){
+                    return new ResponseEntity<>(trenerDTO3, HttpStatus.OK);
+                }
+                else{
+                    return new ResponseEntity<>(trenerDTO3, HttpStatus.BAD_REQUEST);
+                }
+            }
+            else{
+                return new ResponseEntity<>(trenerDTO3, HttpStatus.NOT_FOUND);
+            }
         }
-
-        return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
+        return new ResponseEntity<>(trenerDTO3, HttpStatus.NOT_FOUND);
     }
 }
