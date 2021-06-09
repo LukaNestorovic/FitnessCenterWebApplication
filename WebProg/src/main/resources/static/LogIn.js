@@ -20,7 +20,7 @@ $(document).on("submit", "#logInForm", function (event) {
             contentType: "application/json",
             data: JSON.stringify(newTrener),
             success: function (res) {
-                alert("AAAAA");
+                alert("Uspesno ste se ulogovali kao trener");
             },
             error: function () {
             }
@@ -40,7 +40,7 @@ $(document).on("submit", "#logInForm", function (event) {
             contentType: "application/json",
             data: JSON.stringify(newClan),
             success: function (res) {
-                alert("BBBBB");
+                alert("Uspesno ste se ulogovali kao clan");
             },
             error: function () {
             }
