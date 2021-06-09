@@ -1,7 +1,6 @@
 package com.example.WebProg.service;
 
 import com.example.WebProg.model.Trener;
-import com.example.WebProg.repository.RegistracijaTreneraRepository;
 import com.example.WebProg.repository.TrenerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

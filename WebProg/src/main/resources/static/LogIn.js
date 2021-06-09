@@ -3,7 +3,7 @@ $(document).on("submit", "#logInForm", function (event) {
 
     let korisnicko_ime = $("#korisnicko_ime").val();
     let lozinka = $("#lozinka").val();
-    let uloga = $("#uloga :selected").val();
+    let uloga = $("#uloga").val();
 
     if(uloga === "Trener") {
 

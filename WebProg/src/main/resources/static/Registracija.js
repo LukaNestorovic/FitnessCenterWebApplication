@@ -15,6 +15,8 @@ $(document).ready(function () {
                 row += "<td>" + res[i].kontakt_telefon + "</td>";
                 row += "<td>" + res[i].datum_rodjenja + "</td>";
                 row += "<td>" + res[i].uloga + "</td>";
+                let btn = "<button class='btnSeeMore' data-id=" + res[i].id + ">See More</button>";
+                row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
                 $('#treneri').append(row);
