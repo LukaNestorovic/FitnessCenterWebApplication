@@ -38,9 +38,6 @@ public class LogInTreneraController {
                     return new ResponseEntity<>(trenerDTO3, HttpStatus.BAD_REQUEST);
                 }
             }
-            else{
-                return new ResponseEntity<>(trenerDTO3, HttpStatus.NOT_FOUND);
-            }
         }
         return new ResponseEntity<>(trenerDTO3,HttpStatus.NOT_FOUND);
     }

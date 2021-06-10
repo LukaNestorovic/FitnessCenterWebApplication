@@ -37,9 +37,6 @@ public class LogInClanaController {
                 else {
                     return new ResponseEntity<>(clanDTO3, HttpStatus.BAD_REQUEST);
                 }
-                }
-            else {
-                return new ResponseEntity<>(clanDTO3, HttpStatus.NOT_FOUND);
             }
         }
         return new ResponseEntity<>(clanDTO3, HttpStatus.NOT_FOUND);
