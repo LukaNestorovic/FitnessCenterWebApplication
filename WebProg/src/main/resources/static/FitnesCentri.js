@@ -11,6 +11,8 @@ $(document).ready(function () {
                 row += "<td>" + res[i].adresa + "</td>";
                 row += "<td>" + res[i].email + "</td>";
                 row += "<td>" + res[i].broj_telefona + "</td>";
+                let btn = "<button class='btnDelete' data-id=" + res[i].id + ">Delete</button>";
+                row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
                 $('#fitnesCentri').append(row);
@@ -48,6 +50,23 @@ $(document).on("submit", "#dodajFitnesCentarForm", function (event) {
         },
         error: function () {
             alert("Greška prilikom dodavanja trenera!");
+        }
+    });
+});
+
+$(document).on('click', '.btnDelete', function () {
+    let fitnesCentarId = this.dataset.id;
+
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8080/api/fitnescentri/" + fitnesCentarId,
+        dataType: "json",
+        success: function () {
+            console.log("SUCCESS");
+            $('[data-id="' + fitnesCentarId + '"]').parent().parent().remove();
+        },
+        error: function () {
+            alert("Greška prilikom brisanja zaposlenog!");
         }
     });
 });

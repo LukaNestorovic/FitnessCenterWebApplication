@@ -30,4 +30,23 @@ public class FitnesCentarService {
         FitnesCentar newFitnesCentar = this.fitnesCentarRepository.save(fitnesCentar);
         return newFitnesCentar;
     }
+
+    public void delete(Long id) {
+        this.fitnesCentarRepository.deleteById(id);
+    }
+
+    public FitnesCentar update(FitnesCentar fitnesCentar) throws Exception {
+        FitnesCentar fitnesCentarToUpdate = this.fitnesCentarRepository.getOne(fitnesCentar.getId());
+        if (fitnesCentarToUpdate == null) {
+            throw new Exception("Employee doesn't exist!");
+        }
+
+        fitnesCentarToUpdate.setNaziv(fitnesCentar.getNaziv());
+        fitnesCentarToUpdate.setAdresa(fitnesCentar.getAdresa());
+        fitnesCentarToUpdate.setEmail(fitnesCentar.getEmail());
+        fitnesCentarToUpdate.setBroj_telefona(fitnesCentar.getBroj_telefona());
+
+        FitnesCentar savedFC = this.fitnesCentarRepository.save(fitnesCentarToUpdate);
+        return savedFC;
+    }
 }

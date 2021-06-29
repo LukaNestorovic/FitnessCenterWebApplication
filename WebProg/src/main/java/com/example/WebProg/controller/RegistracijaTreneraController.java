@@ -55,7 +55,7 @@ public class RegistracijaTreneraController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TrenerDTO> createClan(@RequestBody TrenerDTO trenerDTO) throws Exception {
+    public ResponseEntity<TrenerDTO> createTrener(@RequestBody TrenerDTO trenerDTO) throws Exception {
         Trener trener = new Trener(trenerDTO.getKorisnicko_ime(), trenerDTO.getLozinka(), trenerDTO.getIme(), trenerDTO.getPrezime(), trenerDTO.getKontakt_telefon(), trenerDTO.getEmail(), trenerDTO.getDatum_rodjenja(), trenerDTO.getUloga());
 
         Trener newTrener = registracijaTreneraService.create(trener);
@@ -64,4 +64,12 @@ public class RegistracijaTreneraController {
 
         return new ResponseEntity<>(newTrenerDTO, HttpStatus.CREATED);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteTrener(@PathVariable Long id) {
+        this.registracijaTreneraService.delete(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }

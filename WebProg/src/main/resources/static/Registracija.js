@@ -17,6 +17,8 @@ $(document).ready(function () {
                 row += "<td>" + res[i].uloga + "</td>";
                 let btn = "<button class='btnSeeMore' data-id=" + res[i].id + ">Dodaj</button>";
                 row += "<td>" + btn + "</td>";
+                btn = "<button class='btnDelete' data-id=" + res[i].id + ">Delete</button>";
+                row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
                 $('#treneri').append(row);
@@ -93,4 +95,21 @@ $(document).on("submit", "#dodajTreneraForm", function (event) {
             }
         });
     }
+});
+
+$(document).on('click', '.btnDelete', function () {
+    let treneriId = this.dataset.id;
+
+    $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8080/api/registracijatrenera/" + treneriId,
+        dataType: "json",
+        success: function () {
+            console.log("SUCCESS");
+            $('[data-id="' + treneriId + '"]').parent().parent().remove();
+        },
+        error: function () {
+            alert("Greška prilikom brisanja zaposlenog!");
+        }
+    });
 });

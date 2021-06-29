@@ -11,8 +11,6 @@ $(document).ready(function () {
                 row += "<th>" + res[i].opis + "</th>";
                 row += "<th>" + res[i].tip_treninga + "</th>";
                 row += "<th>" + res[i].trajanje + "</th>";
-                let btn = "<button class='btnSeeMore' data-id=" + res[i].id + ">Termini</button>";
-                row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
                 $('#treninzi').append(row);

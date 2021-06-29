@@ -60,4 +60,24 @@ public class FitnesCentarController {
 
         return new ResponseEntity<>(newFitnesCentarDTO, HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<FitnesCentarDTO> updateFitnesCentar(@PathVariable Long id, @RequestBody FitnesCentarDTO fitnesCentarDTO) throws Exception {
+        FitnesCentar fitnesCentar = new FitnesCentar(fitnesCentarDTO.getNaziv(), fitnesCentarDTO.getAdresa(), fitnesCentarDTO.getEmail(), fitnesCentarDTO.getBroj_telefona());
+        fitnesCentar.setId(id);
+
+        FitnesCentar updatedFC = fitnesCentarService.update(fitnesCentar);
+
+        FitnesCentarDTO updatedFCDTO = new FitnesCentarDTO(updatedFC.getId(), updatedFC.getNaziv(), updatedFC.getAdresa(), updatedFC.getEmail(), updatedFC.getBroj_telefona());
+
+        return new ResponseEntity<>(updatedFCDTO, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteFitnesCentar(@PathVariable Long id) {
+        this.fitnesCentarService.delete(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

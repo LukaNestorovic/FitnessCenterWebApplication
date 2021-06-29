@@ -31,4 +31,7 @@ public class RegistracijaTreneraService {
         return newTrener;
     }
 
+    public void delete(Long id) {
+        this.trenerRepository.deleteById(id);
+    }
 }
