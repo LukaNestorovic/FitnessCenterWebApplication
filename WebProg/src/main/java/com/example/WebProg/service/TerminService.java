@@ -18,8 +18,8 @@ public class TerminService {
         return termin;
     }
 
-    public List<Termin> findAll() {
-        List<Termin> termins = this.terminRepository.findAll();
+    public List<Termin> findByTreningId(Long treningId) {
+        List<Termin> termins = this.terminRepository.findByTreningId(treningId);
         return termins;
     }
 }

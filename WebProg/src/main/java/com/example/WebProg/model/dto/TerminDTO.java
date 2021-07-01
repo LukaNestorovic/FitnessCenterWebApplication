@@ -6,16 +6,14 @@ public class TerminDTO {
     private Long id;
     private Double cena;
     private LocalDateTime datum_vreme;
-    private Long id_trening;
 
     public TerminDTO() {
     }
 
-    public TerminDTO(Long id, Double cena, LocalDateTime datum_vreme, Long id_trening){
+    public TerminDTO(Long id, Double cena, LocalDateTime datum_vreme){
         this.id = id;
         this.cena = cena;
         this.datum_vreme = datum_vreme;
-        this.id_trening = id_trening;
     }
 
     public Long getId() {
@@ -42,11 +40,4 @@ public class TerminDTO {
         this.datum_vreme = datum_vreme;
     }
 
-    public Long getId_trening() {
-        return id_trening;
-    }
-
-    public void setId_trening(Long id_trening) {
-        this.id_trening = id_trening;
-    }
 }

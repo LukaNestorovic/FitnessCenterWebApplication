@@ -25,17 +25,15 @@ $(document).ready(function () {
 });
 
 $(document).on('click', '.btnTermin', function () {
-    let treneriId = this.dataset.id;
-    window.location.href = "Termin.html";
+    let treningId = this.dataset.id;
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/termini",
+        url: "http://localhost:8080/api/termini/za-trening/" + treningId,
         dataType: "json",
         success: function (res) {
 
             for (i = 0; i < res.length; i++) {
-                if(res[i].id_trening === treneriId) {
                     let row = "<tr>";
                     row += "<td>" + res[i].cena + "</td>";
                     row += "<th>" + res[i].datum_vreme + "</th>";
@@ -43,7 +41,7 @@ $(document).on('click', '.btnTermin', function () {
 
                     $('#termini').append(row);
                 }
-            }
+            window.location.href = "Termin.html";
         },
         error: function (res) {
             console.log("ERROR:\n", res);

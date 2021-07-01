@@ -33,19 +33,18 @@ public class TerminController {
         terminDTO.setId(termin.getId());
         terminDTO.setCena(termin.getCena());
         terminDTO.setDatum_vreme(termin.getDatum_vreme());
-        terminDTO.setId_trening(termin.getTrening().getId());
 
         return new ResponseEntity<>(terminDTO, HttpStatus.OK);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TerminDTO>> getTermin() {
-        List<Termin> terminList = this.terminService.findAll();
+    @GetMapping(value = "/za-trening/{treningId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TerminDTO>> getTermini(@PathVariable("treningId") Long treningId) {
+        List<Termin> terminList = this.terminService.findByTreningId(treningId);
 
         List<TerminDTO> terminDTOS = new ArrayList<>();
 
         for(Termin termin: terminList) {
-            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getCena(), termin.getDatum_vreme(), termin.getTrening().getId());
+            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getCena(), termin.getDatum_vreme());
             terminDTOS.add(terminDTO);
         }
 
