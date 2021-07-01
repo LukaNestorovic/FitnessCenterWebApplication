@@ -33,6 +33,7 @@ public class TerminController {
         terminDTO.setId(termin.getId());
         terminDTO.setCena(termin.getCena());
         terminDTO.setDatum_vreme(termin.getDatum_vreme());
+        terminDTO.setId_trening(termin.getTrening().getId());
 
         return new ResponseEntity<>(terminDTO, HttpStatus.OK);
     }
@@ -44,7 +45,7 @@ public class TerminController {
         List<TerminDTO> terminDTOS = new ArrayList<>();
 
         for(Termin termin: terminList) {
-            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getCena(), termin.getDatum_vreme());
+            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getCena(), termin.getDatum_vreme(), termin.getTrening().getId());
             terminDTOS.add(terminDTO);
         }
 
