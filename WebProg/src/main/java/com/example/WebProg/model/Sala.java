@@ -23,6 +23,14 @@ public class Sala implements Serializable {
     @OneToMany(mappedBy = "sala",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> termin = new HashSet<>();
 
+    public Sala(){
+    }
+
+    public Sala(Integer kapacitet, String oznaka_sale){
+        this.kapacitet = kapacitet;
+        this.oznaka_sale = oznaka_sale;
+    }
+
     public Long getId() {
         return id;
     }

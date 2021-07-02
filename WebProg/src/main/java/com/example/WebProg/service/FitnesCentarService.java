@@ -38,7 +38,7 @@ public class FitnesCentarService {
     public FitnesCentar update(FitnesCentar fitnesCentar) throws Exception {
         FitnesCentar fitnesCentarToUpdate = this.fitnesCentarRepository.getOne(fitnesCentar.getId());
         if (fitnesCentarToUpdate == null) {
-            throw new Exception("Employee doesn't exist!");
+            throw new Exception("Fitnes centar ne postoji");
         }
 
         fitnesCentarToUpdate.setNaziv(fitnesCentar.getNaziv());
