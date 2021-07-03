@@ -15,10 +15,10 @@ public class Sala implements Serializable {
     private Integer kapacitet;
 
     @Column
-    private String oznaka_sale;
+    private String oznakaSale;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private FitnesCentar fitnes_centar;
+    private FitnesCentar fitnesCentar;
 
     @OneToMany(mappedBy = "sala",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Termin> termin = new HashSet<>();
@@ -26,9 +26,9 @@ public class Sala implements Serializable {
     public Sala(){
     }
 
-    public Sala(Integer kapacitet, String oznaka_sale){
+    public Sala(Integer kapacitet, String oznakaSale){
         this.kapacitet = kapacitet;
-        this.oznaka_sale = oznaka_sale;
+        this.oznakaSale = oznakaSale;
     }
 
     public Long getId() {
@@ -47,20 +47,20 @@ public class Sala implements Serializable {
         this.kapacitet = kapacitet;
     }
 
-    public String getOznaka_sale() {
-        return oznaka_sale;
+    public String getOznakaSale() {
+        return oznakaSale;
     }
 
-    public void setOznaka_sale(String oznaka_sale) {
-        this.oznaka_sale = oznaka_sale;
+    public void setOznakaSale(String oznakaSale) {
+        this.oznakaSale = oznakaSale;
     }
 
-    public FitnesCentar getFitnes_centar() {
-        return fitnes_centar;
+    public FitnesCentar getFitnesCentar() {
+        return fitnesCentar;
     }
 
-    public void setFitnes_centar(FitnesCentar fitnes_centar) {
-        this.fitnes_centar = fitnes_centar;
+    public void setFitnesCentar(FitnesCentar fitnesCentar) {
+        this.fitnesCentar = fitnesCentar;
     }
 
 }

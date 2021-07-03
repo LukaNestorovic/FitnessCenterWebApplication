@@ -6,5 +6,5 @@ import com.example.WebProg.model.Sala;
 import java.util.List;
 
 public interface SalaRepository extends JpaRepository<Sala, Long> {
-    List<Sala> findByFitnes_centar_id(Long fitnesCentarId);
+    List<Sala> findByFitnesCentarId(Long fitnesCentarId);
 }

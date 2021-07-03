@@ -18,8 +18,8 @@ public class SalaService {
         return sala;
     }
 
-    public List<Sala> findByFitnes_centar_id(Long fitnesCentarId){
-        List<Sala> salas = this.salaRepository.findByFitnes_centar_id(fitnesCentarId);
+    public List<Sala> findByFitnesCentarId(Long fitnesCentarId){
+        List<Sala> salas = this.salaRepository.findByFitnesCentarId(fitnesCentarId);
         return salas;
     }
 
@@ -41,9 +41,9 @@ public class SalaService {
             throw new Exception("Sala ne postoji");
         }
 
-        salaToUpdate.setFitnes_centar(sala.getFitnes_centar());
+        salaToUpdate.setFitnesCentar(sala.getFitnesCentar());
         salaToUpdate.setKapacitet(sala.getKapacitet());
-        salaToUpdate.setOznaka_sale(sala.getOznaka_sale());
+        salaToUpdate.setOznakaSale(sala.getOznakaSale());
 
         Sala savedSala = this.salaRepository.save(salaToUpdate);
         return savedSala;

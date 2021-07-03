@@ -25,16 +25,16 @@ public class Termin implements Serializable {
     private Clan clan;
 
     @OneToMany(mappedBy = "termin",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<OdradjeniTrening> odradjeni_treninzi = new HashSet<>();
+    private Set<OdradjeniTrening> odradjeniTreninzi = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private FitnesCentar fitnes_centar;
+    private FitnesCentar fitnesCentar;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Trening trening;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Clan odradjeni_trening;
+    private Clan odradjeniTrening;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Clan ocena;
@@ -71,12 +71,12 @@ public class Termin implements Serializable {
         this.sala = sala;
     }
 
-    public FitnesCentar getFitnes_centar() {
-        return fitnes_centar;
+    public FitnesCentar getFitnesCentar() {
+        return fitnesCentar;
     }
 
-    public void setFitnes_centar(FitnesCentar fitnes_centar) {
-        this.fitnes_centar = fitnes_centar;
+    public void setFitnesCentar(FitnesCentar fitnesCentar) {
+        this.fitnesCentar = fitnesCentar;
     }
 
     public Clan getClan() {
@@ -87,12 +87,12 @@ public class Termin implements Serializable {
         this.clan = clan;
     }
 
-    public Set<OdradjeniTrening> getOdradjeni_treninzi() {
-        return odradjeni_treninzi;
+    public Set<OdradjeniTrening> getOdradjeniTreninzi() {
+        return odradjeniTreninzi;
     }
 
-    public void setOdradjeni_treninzi(Set<OdradjeniTrening> odradjeni_treninzi) {
-        this.odradjeni_treninzi = odradjeni_treninzi;
+    public void setOdradjeniTreninzi(Set<OdradjeniTrening> odradjeniTreninzi) {
+        this.odradjeniTreninzi = odradjeniTreninzi;
     }
 
     public Trening getTrening() {
@@ -103,12 +103,12 @@ public class Termin implements Serializable {
         this.trening = trening;
     }
 
-    public Clan getOdradjeni_trening() {
-        return odradjeni_trening;
+    public Clan getOdradjeniTrening() {
+        return odradjeniTrening;
     }
 
-    public void setOdradjeni_trening(Clan odradjeni_trening) {
-        this.odradjeni_trening = odradjeni_trening;
+    public void setOdradjeniTrening(Clan odradjeniTrening) {
+        this.odradjeniTrening = odradjeniTrening;
     }
 
     public Clan getOcena() {

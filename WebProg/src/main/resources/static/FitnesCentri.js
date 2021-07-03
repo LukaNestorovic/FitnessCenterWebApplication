@@ -11,7 +11,7 @@ $(document).ready(function () {
                 row += "<td>" + res[i].adresa + "</td>";
                 row += "<td>" + res[i].email + "</td>";
                 row += "<td>" + res[i].broj_telefona + "</td>";
-                let btn = "<button class='btnSale' data-id=" + res[i].id + ">Sale</button>";
+                let btn = "<button class='btnSala' data-id=" + res[i].id + ">Sale</button>";
                 row += "<td>" + btn + "</td>";
                 btn = "<button class='btnDelete' data-id=" + res[i].id + ">Delete</button>";
                 row += "<td>" + btn + "</td>";

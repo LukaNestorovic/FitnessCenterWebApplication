@@ -31,19 +31,19 @@ public class SalaController {
         SalaDTO salaDTO = new SalaDTO();
         salaDTO.setId(sala.getId());
         salaDTO.setKapacitet(sala.getKapacitet());
-        salaDTO.setOznaka_sale(sala.getOznaka_sale());
+        salaDTO.setOznaka_sale(sala.getOznakaSale());
 
         return new ResponseEntity<>(salaDTO, HttpStatus.OK);
     }
 
     @GetMapping(value = "/za-fitnes/{fitnesCentarId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<SalaDTO>> getSale(@PathVariable("fitnesCentarId") Long fitnesCentarId) {
-        List<Sala> salaList = this.salaService.findByFitnes_centar_id(fitnesCentarId);
+        List<Sala> salaList = this.salaService.findByFitnesCentarId(fitnesCentarId);
 
         List<SalaDTO> salaDTOS = new ArrayList<>();
 
         for(Sala sala: salaList) {
-            SalaDTO salaDTO = new SalaDTO(sala.getId(), sala.getKapacitet(), sala.getOznaka_sale());
+            SalaDTO salaDTO = new SalaDTO(sala.getId(), sala.getKapacitet(), sala.getOznakaSale());
             salaDTOS.add(salaDTO);
         }
 
@@ -63,7 +63,7 @@ public class SalaController {
 
         Sala newSala = salaService.create(sala);
 
-        SalaDTO newSalaDTO = new SalaDTO(newSala.getId(), newSala.getKapacitet(), newSala.getOznaka_sale());
+        SalaDTO newSalaDTO = new SalaDTO(newSala.getId(), newSala.getKapacitet(), newSala.getOznakaSale());
 
         return new ResponseEntity<>(newSalaDTO, HttpStatus.CREATED);
     }

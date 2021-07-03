@@ -46,7 +46,7 @@ public class Trener implements Serializable {
     private Set<Trening> treninzi = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private FitnesCentar fitnes_centar;
+    private FitnesCentar fitnesCentar;
 
     public Trener(){
     }
@@ -151,11 +151,11 @@ public class Trener implements Serializable {
     }
 
     public FitnesCentar getFitnesCentar() {
-        return fitnes_centar;
+        return fitnesCentar;
     }
 
     public void setFitnesCentar(FitnesCentar fitnesCentar) {
-        this.fitnes_centar = fitnesCentar;
+        this.fitnesCentar = fitnesCentar;
     }
 
     public Double getProsecna_ocena() {
@@ -164,13 +164,5 @@ public class Trener implements Serializable {
 
     public void setProsecna_ocena(Double prosecna_ocena) {
         this.prosecna_ocena = prosecna_ocena;
-    }
-
-    public FitnesCentar getFitnes_centar() {
-        return fitnes_centar;
-    }
-
-    public void setFitnes_centar(FitnesCentar fitnes_centar) {
-        this.fitnes_centar = fitnes_centar;
     }
 }
