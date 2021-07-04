@@ -23,7 +23,7 @@ public class Trening implements Serializable {
     @Column
     private Integer trajanje;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Trener trener;
 
     @OneToMany(mappedBy = "trening",fetch = FetchType.LAZY, cascade = CascadeType.ALL)

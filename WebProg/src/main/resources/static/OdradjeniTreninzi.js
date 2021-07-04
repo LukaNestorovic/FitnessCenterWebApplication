@@ -13,7 +13,7 @@ $(document).ready(function () {
                 row += "<th>" + res[i].datum_vreme + "</th>";
                 row += "</tr>";
 
-                $('#treninzi').append(row);
+                $('#odradjenitreninzi').append(row);
             }
         },
         error: function (res) {

@@ -12,10 +12,10 @@ public class OdradjeniTrening implements Serializable {
     @Column
     private Integer ocena;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Trening trening;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Termin termin;
 
     public Long getId() {

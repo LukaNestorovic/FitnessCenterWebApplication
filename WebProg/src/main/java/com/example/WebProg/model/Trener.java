@@ -45,7 +45,7 @@ public class Trener implements Serializable {
     @OneToMany(mappedBy = "trener", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Trening> treninzi = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private FitnesCentar fitnesCentar;
 
     public Trener(){

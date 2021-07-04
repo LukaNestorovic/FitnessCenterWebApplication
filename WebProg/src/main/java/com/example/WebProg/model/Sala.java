@@ -17,7 +17,7 @@ public class Sala implements Serializable {
     @Column
     private String oznakaSale;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private FitnesCentar fitnesCentar;
 
     @OneToMany(mappedBy = "sala",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
