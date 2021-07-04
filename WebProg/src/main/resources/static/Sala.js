@@ -33,7 +33,7 @@ $(document).on('click', '.btnDelete', function () {
         dataType: "json",
         success: function () {
             console.log("SUCCESS");
-            $('[data-id="' + fitnesCentarId + '"]').parent().parent().remove();
+            $('[data-id="' + salaId + '"]').parent().parent().remove();
         },
         error: function () {
             alert("Greška prilikom brisanja zaposlenog!");

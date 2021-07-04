@@ -13,7 +13,7 @@ $(document).ready(function () {
                 row += "<td>" + res[i].broj_telefona + "</td>";
                 let btn = "<button class='btnSala' data-id=" + res[i].id + ">Sale</button>";
                 row += "<td>" + btn + "</td>";
-                btn = "<button class='btnDelete' data-id=" + res[i].id + ">Delete</button>";
+                btn = "<button class='btnDelete' data-id=" + res[i].id + ">Obrisi</button>";
                 row += "<td>" + btn + "</td>";
                 row += "</tr>";
 

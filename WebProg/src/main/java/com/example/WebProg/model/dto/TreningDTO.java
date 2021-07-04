@@ -1,7 +1,5 @@
 package com.example.WebProg.model.dto;
 
-import java.util.List;
-
 public class TreningDTO {
     private Long id;
     private String naziv;
