@@ -39,6 +39,14 @@ public class Termin implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Clan ocena;
 
+    public Termin(){
+    }
+
+    public Termin(Double cena, LocalDateTime datum_vreme){
+        this.cena = cena;
+        this.datum_vreme = datum_vreme;
+    }
+
     public Long getId() {
         return id;
     }
