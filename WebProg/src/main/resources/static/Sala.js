@@ -1,6 +1,7 @@
 $(document).ready(function () {
     let urlParams = new URLSearchParams(window.location.search);
     let salaId = urlParams.get('salaId');
+    $("#dodaj").attr('href', 'NovaSala.html?salaId=' + salaId);
 
     $.ajax({
         type: "GET",
