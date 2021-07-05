@@ -1,5 +1,7 @@
 $(document).on("submit", "#dodajSaluForm", function (event) {
     event.preventDefault();
+    let urlParams = new URLSearchParams(window.location.search);
+    let salaId = urlParams.get('salaId');
     let kapacitet = $("#kapacitet").val();
     let oznaka = $("#oznaka").val();
     let newSala = {
@@ -9,7 +11,7 @@ $(document).on("submit", "#dodajSaluForm", function (event) {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/api/sale/za-fitnes",
+        url: "http://localhost:8080/api/sale/za-fitnes/" + salaId,
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(newSala),
@@ -18,7 +20,7 @@ $(document).on("submit", "#dodajSaluForm", function (event) {
             window.location.href = "FitnesCentri.html";
         },
         error: function () {
-            alert("Greška prilikom dodavanja trenera!");
+            alert("Greška prilikom dodavanja sale!");
         }
     });
 });

@@ -4,6 +4,7 @@ import com.example.WebProg.model.FitnesCentar;
 import com.example.WebProg.model.Sala;
 import com.example.WebProg.model.dto.FitnesCentarDTO;
 import com.example.WebProg.model.dto.SalaDTO;
+import com.example.WebProg.service.FitnesCentarService;
 import com.example.WebProg.service.SalaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,10 +19,12 @@ import java.util.List;
 @RequestMapping(value = "/api/sale")
 public class SalaController {
     private final SalaService salaService;
+    private final FitnesCentarService fitnesCentarService;
 
     @Autowired
-    public SalaController(SalaService salaService) {
+    public SalaController(SalaService salaService, FitnesCentarService fitnesCentarService) {
         this.salaService = salaService;
+        this.fitnesCentarService = fitnesCentarService;
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -57,9 +60,13 @@ public class SalaController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping(value = "/za-fitnes",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<SalaDTO> createSala(@RequestBody SalaDTO salaDTO) throws Exception {
+    @PostMapping(value = "/za-fitnes/{fitnesCentarId}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<SalaDTO> createSala(@RequestBody SalaDTO salaDTO,@PathVariable("fitnesCentarId") Long fitnesCentarId) throws Exception {
+        FitnesCentar fitnesCentar = fitnesCentarService.findOne(fitnesCentarId);
+
         Sala sala = new Sala(salaDTO.getKapacitet(), salaDTO.getOznaka_sale());
+
+        sala.setFitnesCentar(fitnesCentar);
 
         Sala newSala = salaService.create(sala);
 
