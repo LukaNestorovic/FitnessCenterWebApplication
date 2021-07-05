@@ -1,8 +1,7 @@
 $(document).ready(function () {
     let urlParams = new URLSearchParams(window.location.search);
     let salaId = urlParams.get('salaId');
-    $("#dodaj").attr('href', 'NovaSala.html?salaId=' + salaId);
-
+    $('#dodaj').attr('href', 'NovaSala.html?salaId=' + salaId);
     $.ajax({
         type: "GET",
         url: "http://localhost:8080/api/sale/za-fitnes/" + salaId,

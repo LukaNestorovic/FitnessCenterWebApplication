@@ -3,10 +3,10 @@ $(document).on("submit", "#dodajSaluForm", function (event) {
     let urlParams = new URLSearchParams(window.location.search);
     let salaId = urlParams.get('salaId');
     let kapacitet = $("#kapacitet").val();
-    let oznaka = $("#oznaka").val();
+    let oznaka_sale = $("#oznaka").val();
     let newSala = {
         kapacitet,
-        oznaka
+        oznaka_sale
     }
 
     $.ajax({
