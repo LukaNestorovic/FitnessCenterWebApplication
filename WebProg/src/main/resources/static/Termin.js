@@ -30,14 +30,14 @@ $(document).on('click', '.btnDelete', function () {
 
     $.ajax({
         type: "DELETE",
-        url: "http://localhost:8080/api/sale/za-fitnes/" + salaId,
+        url: "http://localhost:8080/api/termini/za-trening/" + treningId,
         dataType: "json",
         success: function () {
             console.log("SUCCESS");
             $('[data-id="' + salaId + '"]').parent().parent().remove();
         },
         error: function () {
-            alert("Greška prilikom brisanja zaposlenog!");
+            alert("Greška prilikom brisanja termina!");
         }
     });
 });

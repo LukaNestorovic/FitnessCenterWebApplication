@@ -17,7 +17,7 @@ $(document).on("submit", "#dodajTerminForm", function (event) {
         data: JSON.stringify(newTermin),
         success: function (res) {
             alert("Termin " + res.id + " je uspešno kreiran!");
-            window.location.href = "Termin.html";
+            window.location.href = "Termin.html?treningId" + treningId;
         },
         error: function () {
             alert("Greška prilikom dodavanja termina!");

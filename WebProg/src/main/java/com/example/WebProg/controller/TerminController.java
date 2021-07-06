@@ -1,13 +1,9 @@
 package com.example.WebProg.controller;
 
-import com.example.WebProg.model.FitnesCentar;
-import com.example.WebProg.model.Sala;
-import com.example.WebProg.model.Termin;
-import com.example.WebProg.model.Trening;
+import com.example.WebProg.model.*;
 import com.example.WebProg.model.dto.SalaDTO;
 import com.example.WebProg.model.dto.TerminDTO;
-import com.example.WebProg.service.TerminService;
-import com.example.WebProg.service.TreningService;
+import com.example.WebProg.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,11 +18,15 @@ import java.util.List;
 public class TerminController {
     private final TerminService terminService;
     private final TreningService treningService;
+    private final LogInClanaService logInClanaService;
+    private final FitnesCentarService fitnesCentarService;
 
     @Autowired
-    public TerminController(TerminService terminService, TreningService treningService) {
+    public TerminController(TerminService terminService, TreningService treningService, LogInClanaService logInClanaService, FitnesCentarService fitnesCentarService) {
         this.terminService = terminService;
         this.treningService = treningService;
+        this.logInClanaService = logInClanaService;
+        this.fitnesCentarService = fitnesCentarService;
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -48,7 +48,7 @@ public class TerminController {
         List<TerminDTO> terminDTOS = new ArrayList<>();
 
         for(Termin termin: terminList) {
-            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getCena(), termin.getDatum_vreme());
+            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getCena(), termin.getDatum_vreme(), termin.getSala().getOznakaSale());
             terminDTOS.add(terminDTO);
         }
 
@@ -63,16 +63,20 @@ public class TerminController {
     }
 
     @PostMapping(value = "/za-trening/{treningId}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TerminDTO> createTermin(@RequestBody TerminDTO terminDTO, @PathVariable("treningId") Long treningId) throws Exception {
+    public ResponseEntity<TerminDTO> createTermin(@RequestBody TerminDTO terminDTO, @PathVariable("treningId") Long treningId, @PathVariable("clanId") Long clanId) throws Exception {
         Trening trening = treningService.findOne(treningId);
+        Clan clan = logInClanaService.findOne(clanId);
+        FitnesCentar fitnesCentar = fitnesCentarService.findOne(trening.getTrener().getFitnesCentar().getId());
 
         Termin termin = new Termin(terminDTO.getCena(), terminDTO.getDatum_vreme());
 
         termin.setTrening(trening);
+        termin.setClan(clan);
+        termin.setFitnesCentar(fitnesCentar);
 
         Termin newTermin = terminService.create(termin);
 
-        TerminDTO newTerminDTO = new TerminDTO(newTermin.getId(), newTermin.getCena(), newTermin.getDatum_vreme());
+        TerminDTO newTerminDTO = new TerminDTO(newTermin.getId(), newTermin.getCena(), newTermin.getDatum_vreme(), newTermin.getSala().getOznakaSale());
 
         return new ResponseEntity<>(newTerminDTO, HttpStatus.CREATED);
     }
