@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Termini</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="TerminiZaClanove.css" />
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="TerminiZaClanove.js"></script>
+</head>
+<body>
+<div id="sviTermini">
+    <h1>Termini</h1>
+    <p><button onclick="sortTable()">Sortiraj po ceni</button></p>
+    <br>
+    <br><br>
+    <div class="container">
+        <table id="termini">
+            <tr>
+                <th>Cena</th>
+                <th>Datum i vreme</th>
+                <th>Prijavi</th>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+    function sortTable() {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("termini");
+        switching = true;
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[0];
+                y = rows[i + 1].getElementsByTagName("TD")[0];
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

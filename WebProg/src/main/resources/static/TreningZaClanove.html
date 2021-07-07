@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #myInput {
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+    </style>
+    <title>Treninzi</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="TreningZaClanove.css" />
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="TreningZaClanove.js"></script>
+</head>
+<body>
+<div id="sviTreninzi">
+    <h1>Treninzi</h1>
+    <p><button onclick="sortTable()">Sortiraj po imenu</button></p>
+    <input id="myInput" type="text" placeholder="Trazi">
+    <br><br>
+    <div class="container">
+        <table id="treninzi">
+            <tr>
+                <th>Naziv</th>
+                <th>Opis</th>
+                <th>Tip treninga</th>
+                <th>Trajanje</th>
+                <th>Termini</th>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+    function sortTable() {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("treninzi");
+        switching = true;
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[0];
+                y = rows[i + 1].getElementsByTagName("TD")[0];
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#treninzi tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

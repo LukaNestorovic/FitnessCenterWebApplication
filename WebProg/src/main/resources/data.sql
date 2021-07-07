@@ -19,3 +19,4 @@ Insert into Termin (cena,datum_vreme,fitnes_centar_id,trening_id,odradjeni_treni
 
 
 Insert into Odradjeni_Trening (ocena,trening_id,termin_id) values (5,1,1);
+Insert into Odradjeni_Trening (ocena,trening_id,termin_id) values (null,1,1);
