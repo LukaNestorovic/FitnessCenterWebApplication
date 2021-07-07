@@ -18,14 +18,12 @@ import java.util.List;
 public class TerminController {
     private final TerminService terminService;
     private final TreningService treningService;
-    private final LogInClanaService logInClanaService;
     private final FitnesCentarService fitnesCentarService;
 
     @Autowired
-    public TerminController(TerminService terminService, TreningService treningService, LogInClanaService logInClanaService, FitnesCentarService fitnesCentarService) {
+    public TerminController(TerminService terminService, TreningService treningService, FitnesCentarService fitnesCentarService) {
         this.terminService = terminService;
         this.treningService = treningService;
-        this.logInClanaService = logInClanaService;
         this.fitnesCentarService = fitnesCentarService;
     }
 
@@ -63,15 +61,13 @@ public class TerminController {
     }
 
     @PostMapping(value = "/za-trening/{treningId}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TerminDTO> createTermin(@RequestBody TerminDTO terminDTO, @PathVariable("treningId") Long treningId, @PathVariable("clanId") Long clanId) throws Exception {
+    public ResponseEntity<TerminDTO> createTermin(@RequestBody TerminDTO terminDTO, @PathVariable("treningId") Long treningId) throws Exception {
         Trening trening = treningService.findOne(treningId);
-        Clan clan = logInClanaService.findOne(clanId);
         FitnesCentar fitnesCentar = fitnesCentarService.findOne(trening.getTrener().getFitnesCentar().getId());
 
         Termin termin = new Termin(terminDTO.getCena(), terminDTO.getDatum_vreme());
 
         termin.setTrening(trening);
-        termin.setClan(clan);
         termin.setFitnesCentar(fitnesCentar);
 
         Termin newTermin = terminService.create(termin);
