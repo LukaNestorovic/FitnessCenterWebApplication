@@ -11,7 +11,7 @@
 <div id="sviTermini">
     <h1>Termini</h1>
     <p><button onclick="sortTable()">Sortiraj po ceni</button></p>
-    <br>
+    <input id="myInput" type="text" placeholder="Trazi">
     <br><br>
     <div class="container">
         <table id="termini">
@@ -46,6 +46,15 @@
             }
         }
     }
+
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#termini tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 </script>
 
 </body>
