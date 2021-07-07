@@ -25,8 +25,7 @@ $(document).ready(function () {
         success: function (res) {
             $('#cena').text(res.cena);
             $('#datum_vreme').text(res.datum_vreme);
-
-        },
+            },
         error: function (res) {
             console.log("ERROR:\n", res);
         }
