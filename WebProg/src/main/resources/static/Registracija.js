@@ -15,7 +15,7 @@ $(document).ready(function () {
                 row += "<td>" + res[i].kontakt_telefon + "</td>";
                 row += "<td>" + res[i].datum_rodjenja + "</td>";
                 row += "<td>" + res[i].uloga + "</td>";
-                btn = "<button class='btnDelete' data-id=" + res[i].id + ">Obrisi</button>";
+                let btn = "<button class='btnDelete' data-id=" + res[i].id + ">Obrisi</button>";
                 row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
