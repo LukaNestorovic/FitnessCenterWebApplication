@@ -48,7 +48,7 @@ public class TerminController {
         List<TerminDTO> terminDTOS = new ArrayList<>();
 
         for(Termin termin: terminList) {
-            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getCena(), termin.getDatum_vreme(), termin.getSala().getOznakaSale());
+            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getCena(), termin.getDatum_vreme());
             terminDTOS.add(terminDTO);
         }
 
@@ -76,7 +76,7 @@ public class TerminController {
 
         Termin newTermin = terminService.create(termin);
 
-        TerminDTO newTerminDTO = new TerminDTO(newTermin.getId(), newTermin.getCena(), newTermin.getDatum_vreme(), newTermin.getSala().getOznakaSale());
+        TerminDTO newTerminDTO = new TerminDTO(newTermin.getId(), newTermin.getCena(), newTermin.getDatum_vreme());
 
         return new ResponseEntity<>(newTerminDTO, HttpStatus.CREATED);
     }

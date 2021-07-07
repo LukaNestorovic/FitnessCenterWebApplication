@@ -26,7 +26,7 @@ $(document).ready(function () {
 });
 
 $(document).on('click', '.btnDelete', function () {
-    let salaId = this.dataset.id;
+    let treningId = this.dataset.id;
 
     $.ajax({
         type: "DELETE",
@@ -34,7 +34,7 @@ $(document).on('click', '.btnDelete', function () {
         dataType: "json",
         success: function () {
             console.log("SUCCESS");
-            $('[data-id="' + salaId + '"]').parent().parent().remove();
+            $('[data-id="' + treningId + '"]').parent().parent().remove();
         },
         error: function () {
             alert("Greška prilikom brisanja termina!");

@@ -11,7 +11,7 @@ $(document).on("submit", "#dodajTerminForm", function (event) {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/api/sale/za-trening/" + treningId,
+        url: "http://localhost:8080/api/termini/za-trening/" + treningId,
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(newTermin),

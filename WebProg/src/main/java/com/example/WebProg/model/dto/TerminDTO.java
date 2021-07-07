@@ -6,16 +6,14 @@ public class TerminDTO {
     private Long id;
     private Double cena;
     private LocalDateTime datum_vreme;
-    private String oznaka_sale;
 
     public TerminDTO() {
     }
 
-    public TerminDTO(Long id, Double cena, LocalDateTime datum_vreme, String oznaka_sale){
+    public TerminDTO(Long id, Double cena, LocalDateTime datum_vreme){
         this.id = id;
         this.cena = cena;
         this.datum_vreme = datum_vreme;
-        this.oznaka_sale = oznaka_sale;
     }
 
     public Long getId() {
