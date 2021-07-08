@@ -6,10 +6,10 @@ $(document).ready(function () {
         url: "http://localhost:8080/api/fitnescentri/" + fitnesId,
         dataType: "json",
         success: function (res) {
-            $('#naziv').text(res.naziv);
-            $('#adresa').text(res.adresa);
-            $('#email').text(res.email);
-            $('#broj_telefona').text(res.broj_telefona);
+            $('#naziv').val(res.naziv);
+            $('#adresa').val(res.adresa);
+            $('#email').val(res.email);
+            $('#broj_telefona').val(res.broj_telefona);
         },
         error: function (res) {
             console.log("ERROR:\n", res);
