@@ -21,6 +21,8 @@ $(document).on("submit", "#logInForm", function (event) {
             data: JSON.stringify(newTrener),
             success: function (res) {
                 alert("Uspesno ste se ulogovali kao trener");
+                let trenerId = res.id;
+                window.location.href = "UlogovanTrener.html?trenerId=" + trenerId;
             },
             error: function () {
             }
@@ -41,6 +43,29 @@ $(document).on("submit", "#logInForm", function (event) {
             data: JSON.stringify(newClan),
             success: function (res) {
                 alert("Uspesno ste se ulogovali kao clan");
+                let clanId = res.id;
+                window.location.href = "UlogovanClan.html?clanId=" + clanId;
+            },
+            error: function () {
+            }
+        });
+    } else if (uloga === "Administrator") {
+        let newAdministrator = {
+            korisnicko_ime,
+            lozinka,
+            uloga
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/loginadministratora",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(newAdministrator),
+            success: function (res) {
+                alert("Uspesno ste se ulogovali kao administrator");
+                let administratorId = res.id;
+                window.location.href = "UlogovanAdministrator.html?administratorId=" + administratorId;
             },
             error: function () {
             }
