@@ -15,6 +15,8 @@ $(document).ready(function () {
                 row += "<td>" + btn + "</td>";
                 btn = "<button class='btnDelete' data-id=" + res[i].id + ">Obrisi</button>";
                 row += "<td>" + btn + "</td>";
+                btn = "<button class='btnIzmeni' data-id=" + res[i].id + ">Izmeni</button>";
+                row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
                 $('#fitnesCentri').append(row);
@@ -76,4 +78,9 @@ $(document).on('click', '.btnDelete', function () {
 $(document).on('click', '.btnSala', function () {
     let salaId = this.dataset.id;
     window.location.href = "Sala.html?salaId=" + salaId;
+});
+
+$(document).on('click', '.btnIzmeni', function () {
+    let fitnesId = this.dataset.id;
+    window.location.href = "UpdateFitnesCentra.html?fitnesId=" + fitnesId;
 });

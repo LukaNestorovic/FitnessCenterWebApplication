@@ -41,7 +41,6 @@ public class SalaService {
             throw new Exception("Sala ne postoji");
         }
 
-        salaToUpdate.setFitnesCentar(sala.getFitnesCentar());
         salaToUpdate.setKapacitet(sala.getKapacitet());
         salaToUpdate.setOznakaSale(sala.getOznakaSale());
 
