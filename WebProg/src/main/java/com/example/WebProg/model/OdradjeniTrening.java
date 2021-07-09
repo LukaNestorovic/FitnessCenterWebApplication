@@ -18,6 +18,16 @@ public class OdradjeniTrening implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Termin termin;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Clan clan;
+
+    public OdradjeniTrening(){
+    }
+
+    public OdradjeniTrening(Integer ocena){
+        this.ocena = ocena;
+    }
+
     public Long getId() {
         return id;
     }
@@ -48,5 +58,13 @@ public class OdradjeniTrening implements Serializable {
 
     public void setTermin(Termin termin) {
         this.termin = termin;
+    }
+
+    public Clan getClan() {
+        return clan;
+    }
+
+    public void setClan(Clan clan) {
+        this.clan = clan;
     }
 }

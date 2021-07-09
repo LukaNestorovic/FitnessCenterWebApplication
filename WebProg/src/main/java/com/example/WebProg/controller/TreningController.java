@@ -55,7 +55,7 @@ public class TreningController {
         return new ResponseEntity<>(treningDTOS, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{trenerId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/njegovi/{trenerId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TreningDTO>> getTreningeId(@PathVariable("trenerId") Long trenerId) {
         List<Trening> treningList = this.treningService.findByTrenerId(trenerId);
 

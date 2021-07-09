@@ -3,7 +3,7 @@ $(document).ready(function () {
     let trenerId = urlParams.get('trenerId');
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/treninzi/" + trenerId,
+        url: "http://localhost:8080/api/treninzi/njegovi/" + trenerId,
         dataType: "json",
         success: function (res) {
 

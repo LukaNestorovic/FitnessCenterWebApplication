@@ -1,6 +1,7 @@
 package com.example.WebProg.service;
 
 import com.example.WebProg.model.OdradjeniTrening;
+import com.example.WebProg.model.OdradjeniTrening;
 import com.example.WebProg.repository.OdradjeniTreningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,20 @@ public class OdradjeniTreningService {
         return odradjeniTrening;
     }
 
-    public List<OdradjeniTrening> findAll() {
-        List<OdradjeniTrening> odradjeniTrenings = this.odradjeniTreningRepository.findAll();
+    public List<OdradjeniTrening> findByClanId(Long clanId) {
+        List<OdradjeniTrening> odradjeniTrenings = this.odradjeniTreningRepository.findByClanId(clanId);
         return odradjeniTrenings;
+    }
+
+    public OdradjeniTrening update(OdradjeniTrening odradjeniTrening) throws Exception{
+        OdradjeniTrening odradjeniTreningToUpdate = this.odradjeniTreningRepository.getOne(odradjeniTrening.getId());
+        if(odradjeniTreningToUpdate == null){
+            throw new Exception("OdradjeniTrening ne postoji");
+        }
+
+        odradjeniTreningToUpdate.setOcena(odradjeniTrening.getOcena());
+
+        OdradjeniTrening savedOdradjeniTrening = this.odradjeniTreningRepository.save(odradjeniTreningToUpdate);
+        return savedOdradjeniTrening;
     }
 }

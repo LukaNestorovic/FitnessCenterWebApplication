@@ -1,6 +1,8 @@
 package com.example.WebProg.controller;
 
 import com.example.WebProg.model.Clan;
+import com.example.WebProg.model.Clan;
+import com.example.WebProg.model.dto.ClanDTO;
 import com.example.WebProg.model.dto.ClanDTO;
 import com.example.WebProg.service.RegistracijaClanaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,5 +65,18 @@ public class RegistracijaClanaController {
         ClanDTO newClanDTO = new ClanDTO(newClan.getId(), newClan.getkorisnickoIme(), newClan.getLozinka(), newClan.getIme(), newClan.getPrezime(), newClan.getKontakt_telefon(), newClan.getEmail(), newClan.getDatum_rodjenja(), newClan.getUloga());
 
         return new ResponseEntity<>(newClanDTO, HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ClanDTO> updateClana(@PathVariable Long id, @RequestBody ClanDTO clanDTO) throws Exception {
+        Clan clan = new Clan(clanDTO.getkorisnicko_ime(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getKontakt_telefon(), clanDTO.getEmail(), clanDTO.getDatum_rodjenja(), clanDTO.getUloga());
+        clan.setId(id);
+
+        Clan updatedClan = registracijaClanaService.update(clan);
+
+        ClanDTO updatedClanDTO = new ClanDTO(updatedClan.getId(), updatedClan.getkorisnickoIme(), updatedClan.getLozinka(), updatedClan.getIme(), updatedClan.getPrezime(), updatedClan.getKontakt_telefon(), updatedClan.getEmail(), updatedClan.getDatum_rodjenja(), updatedClan.getUloga());
+
+        return new ResponseEntity<>(updatedClanDTO, HttpStatus.OK);
     }
 }

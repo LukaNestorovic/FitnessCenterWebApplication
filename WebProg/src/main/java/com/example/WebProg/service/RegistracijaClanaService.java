@@ -1,6 +1,7 @@
 package com.example.WebProg.service;
 
 import com.example.WebProg.model.Clan;
+import com.example.WebProg.model.Clan;
 import com.example.WebProg.repository.RegistracijaClanaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,23 @@ public class RegistracijaClanaService {
         }
         Clan newClan = this.registracijaClanaRepository.save(clan);
         return newClan;
+    }
+
+    public Clan update(Clan clan) throws Exception{
+        Clan clanToUpdate = this.registracijaClanaRepository.getOne(clan.getId());
+        if(clanToUpdate == null){
+            throw new Exception("Clan ne postoji");
+        }
+
+        clanToUpdate.setkorisnickoIme(clan.getkorisnickoIme());
+        clanToUpdate.setLozinka(clan.getLozinka());
+        clanToUpdate.setIme(clan.getIme());
+        clanToUpdate.setPrezime(clan.getPrezime());
+        clanToUpdate.setKontakt_telefon(clan.getKontakt_telefon());
+        clanToUpdate.setEmail(clan.getEmail());
+
+        Clan savedClan = this.registracijaClanaRepository.save(clanToUpdate);
+        return savedClan;
     }
 
 }

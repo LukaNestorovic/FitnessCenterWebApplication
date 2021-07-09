@@ -1,7 +1,9 @@
 $(document).ready(function () {
+    let urlParams = new URLSearchParams(window.location.search);
+    let clanId = urlParams.get('clanId');
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/odradjeni-treninzi",
+        url: "http://localhost:8080/api/odradjeni-treninzi/za-clana/" + clanId,
         dataType: "json",
         success: function (res) {
 
@@ -43,4 +45,11 @@ $(document).ready(function () {
             console.log("ERROR:\n", res);
         }
     });
+});
+
+$(document).on('click', '.btnOceni', function () {
+    let treningId = this.dataset.id;
+    let urlParams = new URLSearchParams(window.location.search);
+    let clanId = urlParams.get('clanId');
+    window.location.href = "Oceni.html?treningId=" + treningId + "&clanId=" + clanId;
 });
