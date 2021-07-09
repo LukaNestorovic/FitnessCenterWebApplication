@@ -16,6 +16,8 @@ $(document).ready(function () {
 
     $(document).on("submit", "#dodajTerminForm", function (event) {
         event.preventDefault();
+        let urlParams1 = new URLSearchParams(window.location.search);
+        let trenerId = urlParams1.get('trenerId');
         let cena = $("#cena").val();
         let datum_vreme = $("#datum_vreme").val();
 
@@ -32,7 +34,7 @@ $(document).ready(function () {
             data: JSON.stringify(newTermin),
             success: function (res) {
                 alert("Termin " + res.id + " je uspešno ispravljen!");
-                window.location.href = "Treninzi.html";
+                window.location.href = "Treninzi.html?trenerId=" + trenerId;
             },
             error: function () {
                 alert("Greška prilikom ispravke termina!");

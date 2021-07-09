@@ -60,7 +60,7 @@ $(document).on("submit", "#dodajTreneraForm", function (event) {
             data: JSON.stringify(newTrener),
             success: function (res) {
                 alert("Trener " + res.id + " je uspešno kreiran!");
-                window.location.href = "Treneri.html";
+                window.location.href = "LogIn.html";
             },
             error: function () {
                 alert("Greška prilikom dodavanja trenera!");
@@ -87,6 +87,7 @@ $(document).on("submit", "#dodajTreneraForm", function (event) {
             data: JSON.stringify(newClan),
             success: function (res) {
                 alert("Clan " + res.id + " je uspešno kreiran!");
+                window.location.href = "LogIn.html";
             },
             error: function () {
                 alert("Greška prilikom dodavanja clana!");

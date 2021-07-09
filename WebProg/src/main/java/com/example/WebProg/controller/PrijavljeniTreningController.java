@@ -43,8 +43,8 @@ public class PrijavljeniTreningController {
         return new ResponseEntity<>(prijavljeniTreningDTOS, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/za-clana/{clanId}/termin/{terminId}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PrijavljeniTreningDTO> createPrijavljeniTrening(@RequestBody PrijavljeniTreningDTO prijavljeniTreningDTO,@PathVariable("clanId") Long clanId, @PathVariable("terminId") Long terminId) throws Exception {
+    @PostMapping(value = "/za-clana/{clanId}/termin/{terminId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PrijavljeniTreningDTO> createPrijavljeniTrening(@PathVariable("clanId") Long clanId, @PathVariable("terminId") Long terminId) throws Exception {
         Clan clan = clanService.findOne(clanId);
         Termin termin = terminService.findOne(terminId);
 

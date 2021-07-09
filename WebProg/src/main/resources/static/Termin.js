@@ -46,5 +46,9 @@ $(document).on('click', '.btnDelete', function () {
 
 $(document).on('click', '.btnIzmeni', function () {
     let terminId = this.dataset.id;
-    window.location.href = "UpdateTermina.html?terminId=" + terminId;
+    let urlParams = new URLSearchParams(window.location.search);
+    let trenerId = urlParams.get('treningId');
+    let urlParams1 = new URLSearchParams(window.location.search);
+    let treningId = urlParams1.get('treningId');
+    window.location.href = "UpdateTermina.html?terminId=" + terminId + "?trenerId=" + trenerId + "&treningId=" + treningId;
 });

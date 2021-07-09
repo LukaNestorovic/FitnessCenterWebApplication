@@ -28,5 +28,7 @@ $(document).ready(function () {
 
 $(document).on('click', '.btnTermin', function () {
     let treningId = this.dataset.id;
-    window.location.href = "Termin.html?treningId=" + treningId;
+    let urlParams = new URLSearchParams(window.location.search);
+    let trenerId = urlParams.get('trenerId');
+    window.location.href = "Termin.html?treningId=" + treningId + "&trenerId=" + trenerId;
 });
