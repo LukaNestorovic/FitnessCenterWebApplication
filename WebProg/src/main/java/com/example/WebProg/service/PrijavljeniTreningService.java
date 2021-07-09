@@ -13,7 +13,7 @@ public class PrijavljeniTreningService {
     private PrijavljeniTreningRepository prijavljeniTreningRepository;
 
     public List<PrijavljeniTrening> findByClanId(Long clanId) {
-        List<PrijavljeniTrening> prijavljeniTrenings = this.prijavljeniTreningRepository.findByTerminId(clanId);
+        List<PrijavljeniTrening> prijavljeniTrenings = this.prijavljeniTreningRepository.findByClanId(clanId);
         return prijavljeniTrenings;
     }
 

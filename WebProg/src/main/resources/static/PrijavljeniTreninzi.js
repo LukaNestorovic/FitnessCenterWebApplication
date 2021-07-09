@@ -1,8 +1,8 @@
 $(document).ready(function () {
     let urlParams = new URLSearchParams(window.location.search);
-    let terminId = urlParams.get('terminId');
+    let clanId = urlParams.get('clanId');
     let urlParams1 = new URLSearchParams(window.location.search);
-    let clanId = urlParams1.get('clanId');
+    let terminId = urlParams1.get('terminId');
 
     $.ajax({
         type: "GET",

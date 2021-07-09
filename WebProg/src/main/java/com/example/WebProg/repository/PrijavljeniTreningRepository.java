@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PrijavljeniTreningRepository extends JpaRepository<PrijavljeniTrening, Long> {
-    List<PrijavljeniTrening> findByTerminId(Long termin_id);
+    List<PrijavljeniTrening> findByClanId(Long clan_id);
 }

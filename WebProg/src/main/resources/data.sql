@@ -29,3 +29,4 @@ Insert into Odradjeni_Trening (ocena,trening_id,termin_id,clan_id) values (null,
 Insert into Odradjeni_Trening (ocena,trening_id,termin_id,clan_id) values (4,3,3,1);
 
 Insert into Prijavljeni_trening (clan_id,termin_id) values (1,1);
+Insert into Prijavljeni_trening (clan_id,termin_id) values (2,1);
