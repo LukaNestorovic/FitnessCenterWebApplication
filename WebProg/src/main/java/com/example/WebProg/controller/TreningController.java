@@ -1,6 +1,8 @@
 package com.example.WebProg.controller;
 
+import com.example.WebProg.model.Termin;
 import com.example.WebProg.model.Trening;
+import com.example.WebProg.model.dto.TerminDTO;
 import com.example.WebProg.model.dto.TreningDTO;
 import com.example.WebProg.service.TreningService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +42,22 @@ public class TreningController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TreningDTO>> getTrening() {
+    public ResponseEntity<List<TreningDTO>> getTreninge() {
         List<Trening> treningList = this.treningService.findAll();
+
+        List<TreningDTO> treningDTOS = new ArrayList<>();
+
+        for(Trening trening: treningList) {
+            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTip_treninga(), trening.getTrajanje());
+            treningDTOS.add(treningDTO);
+        }
+
+        return new ResponseEntity<>(treningDTOS, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{trenerId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TreningDTO>> getTreningeId(@PathVariable("trenerId") Long trenerId) {
+        List<Trening> treningList = this.treningService.findByTrenerId(trenerId);
 
         List<TreningDTO> treningDTOS = new ArrayList<>();
 

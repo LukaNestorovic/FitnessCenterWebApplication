@@ -34,6 +34,7 @@ public class LogInAdministratoraController {
         for(Administrator administrator : administratorList){
             if(administrator.getKorisnicko_ime().equals(administratorDTO1.getKorisnicko_ime())){
                 if(administrator.getLozinka().equals(administratorDTO1.getLozinka())){
+                    administratorDTO1.setId(administrator.getId());
                     return new ResponseEntity<>(administratorDTO1, HttpStatus.OK);
                 }
                 else{

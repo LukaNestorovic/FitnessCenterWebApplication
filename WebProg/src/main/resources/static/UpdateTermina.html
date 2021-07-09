@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="NoviTermin.css">
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="UpdateTermina.js"></script>
+    <meta charset="UTF-8">
+    <title>Izmena termina</title>
+
+</head>
+<body>
+<div class="container">
+    <h1>Izmena Termina</h1>
+    <hr>
+    <form id="dodajTerminForm">
+        <label for="cena"><b>Cena</b></label>
+        <input type="text" placeholder="Unesite cenu" id="cena" required>
+
+        <label for="datum_vreme"><b>Datum i vreme</b></label>
+        <input type="datetime-local" style="height: 35px" id="datum_vreme" required>
+        <br><br>
+
+        <div class="clearfix">
+            <button class="cancelbtn">Nazad</button>
+            <button type="submit" class="signupbtn">Izmeni</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

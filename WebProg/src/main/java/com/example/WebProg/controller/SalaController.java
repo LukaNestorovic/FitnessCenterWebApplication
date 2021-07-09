@@ -74,4 +74,17 @@ public class SalaController {
 
         return new ResponseEntity<>(newSalaDTO, HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<SalaDTO> updateSale(@PathVariable Long id, @RequestBody SalaDTO salaDTO) throws Exception {
+        Sala sala = new Sala(salaDTO.getKapacitet(), salaDTO.getOznaka_sale());
+        sala.setId(id);
+
+        Sala updatedSala = salaService.update(sala);
+
+        SalaDTO updatedSalaDTO = new SalaDTO(updatedSala.getId(), updatedSala.getKapacitet(), updatedSala.getOznakaSale());
+
+        return new ResponseEntity<>(updatedSalaDTO, HttpStatus.OK);
+    }
 }

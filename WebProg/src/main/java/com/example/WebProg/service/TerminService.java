@@ -35,4 +35,17 @@ public class TerminService {
     public void delete(Long id){
         this.terminRepository.deleteById(id);
     }
+
+    public Termin update(Termin termin) throws Exception{
+        Termin terminToUpdate = this.terminRepository.getOne(termin.getId());
+        if(terminToUpdate == null){
+            throw new Exception("Termin ne postoji");
+        }
+
+        terminToUpdate.setCena(termin.getCena());
+        terminToUpdate.setDatum_vreme(termin.getDatum_vreme());
+
+        Termin savedTermin = this.terminRepository.save(terminToUpdate);
+        return savedTermin;
+    }
 }

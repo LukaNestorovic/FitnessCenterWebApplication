@@ -32,6 +32,7 @@ public class LogInClanaController {
         for(Clan clan: clanList) {
             if(clan.getkorisnickoIme().equals(clanDTO3.getKorisnicko_ime())){
                 if(clan.getLozinka().equals(clanDTO3.getLozinka())) {
+                    clanDTO3.setId(clan.getId());
                     return new ResponseEntity<>(clanDTO3, HttpStatus.OK);
                 }
                 else {

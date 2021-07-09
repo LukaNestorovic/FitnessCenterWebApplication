@@ -76,4 +76,17 @@ public class TerminController {
 
         return new ResponseEntity<>(newTerminDTO, HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TerminDTO> updateTermina(@PathVariable Long id, @RequestBody TerminDTO terminDTO) throws Exception {
+        Termin termin = new Termin(terminDTO.getCena(), terminDTO.getDatum_vreme());
+        termin.setId(id);
+
+        Termin updatedTermin = terminService.update(termin);
+
+        TerminDTO updatedTerminDTO = new TerminDTO(updatedTermin.getId(), updatedTermin.getCena(), updatedTermin.getDatum_vreme());
+
+        return new ResponseEntity<>(updatedTerminDTO, HttpStatus.OK);
+    }
 }

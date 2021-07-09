@@ -22,4 +22,9 @@ public class TreningService {
         List<Trening> treninzi = this.treningRepository.findAll();
         return treninzi;
     }
+
+    public List<Trening> findByTrenerId(Long trenerId) {
+        List<Trening> treninzi = this.treningRepository.findByTrenerId(trenerId);
+        return treninzi;
+    }
 }

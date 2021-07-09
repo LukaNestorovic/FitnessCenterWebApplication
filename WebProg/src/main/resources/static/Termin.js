@@ -14,6 +14,8 @@ $(document).ready(function () {
                 row += "<th>" + res[i].datum_vreme + "</th>";
                 let btn = "<button class='btnDelete' data-id=" + res[i].id + ">Obrisi</button>";
                 row += "<td>" + btn + "</td>";
+                btn = "<button class='btnIzmeni' data-id=" + res[i].id + ">Izmeni</button>";
+                row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
                 $('#termini').append(row);
@@ -40,4 +42,9 @@ $(document).on('click', '.btnDelete', function () {
             alert("Greška prilikom brisanja termina!");
         }
     });
+});
+
+$(document).on('click', '.btnIzmeni', function () {
+    let terminId = this.dataset.id;
+    window.location.href = "UpdateTermina.html?terminId=" + terminId;
 });

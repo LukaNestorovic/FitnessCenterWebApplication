@@ -1,7 +1,9 @@
 $(document).ready(function () {
+    let urlParams = new URLSearchParams(window.location.search);
+    let trenerId = urlParams.get('trenerId');
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/treninzi",
+        url: "http://localhost:8080/api/treninzi/" + trenerId,
         dataType: "json",
         success: function (res) {
 

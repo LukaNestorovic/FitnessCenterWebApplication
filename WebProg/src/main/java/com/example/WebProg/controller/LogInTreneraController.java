@@ -32,6 +32,7 @@ public class LogInTreneraController {
         for(Trener trener : trenerList){
             if(trener.getKorisnicko_ime().equals(trenerDTO3.getKorisnicko_ime())){
                 if(trener.getLozinka().equals(trenerDTO3.getLozinka())){
+                    trenerDTO3.setId(trener.getId());
                     return new ResponseEntity<>(trenerDTO3, HttpStatus.OK);
                 }
                 else{
