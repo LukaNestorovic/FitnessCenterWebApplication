@@ -39,9 +39,6 @@ public class Termin implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Clan ocena;
 
-    @ManyToMany(mappedBy = "rezervisaniTermini", fetch = FetchType.LAZY)
-    private Set<Clan> prijavljeniClanovi = new HashSet<>();
-
     public Termin(){
     }
 
@@ -128,13 +125,5 @@ public class Termin implements Serializable {
 
     public void setOcena(Clan ocena) {
         this.ocena = ocena;
-    }
-
-    public Set<Clan> getPrijavljeniClanovi() {
-        return prijavljeniClanovi;
-    }
-
-    public void setPrijavljeniClanovi(Set<Clan> prijavljeniClanovi) {
-        this.prijavljeniClanovi = prijavljeniClanovi;
     }
 }

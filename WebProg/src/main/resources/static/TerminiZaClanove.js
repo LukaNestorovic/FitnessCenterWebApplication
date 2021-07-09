@@ -27,6 +27,6 @@ $(document).ready(function () {
 $(document).on('click', '.btnPrijavi', function () {
     let terminId = this.dataset.id;
     let urlParams = new URLSearchParams(window.location.search);
-    let treningId = urlParams.get('treningId');
-    window.location.href = "PrijavljeniTreninzi.html?treningId=" + treningId + "&terminId=" + terminId;
+    let clanId = urlParams.get('clanId');
+    window.location.href = "PrijavljeniTreninzi.html?terminId=" + terminId + "&clanId=" + clanId;
 });

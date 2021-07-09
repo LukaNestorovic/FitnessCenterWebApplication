@@ -26,5 +26,7 @@ $(document).ready(function () {
 
 $(document).on('click', '.btnTermin', function () {
     let treningId = this.dataset.id;
-    window.location.href = "TerminiZaClanove.html?treningId=" + treningId;
+    let urlParams = new URLSearchParams(window.location.search);
+    let clanId = urlParams.get('clanId');
+    window.location.href = "TerminiZaClanove.html?treningId=" + treningId + "&clanId=" + clanId;
 });
