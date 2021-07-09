@@ -2,6 +2,7 @@ package com.example.WebProg.service;
 
 import com.example.WebProg.model.OdradjeniTrening;
 import com.example.WebProg.model.OdradjeniTrening;
+import com.example.WebProg.model.PrijavljeniTrening;
 import com.example.WebProg.repository.OdradjeniTreningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,13 @@ public class OdradjeniTreningService {
 
         OdradjeniTrening savedOdradjeniTrening = this.odradjeniTreningRepository.save(odradjeniTreningToUpdate);
         return savedOdradjeniTrening;
+    }
+
+    public OdradjeniTrening create(OdradjeniTrening odradjeniTrening) throws Exception{
+        if(odradjeniTrening.getId() != null){
+            throw new Exception("ID must be null!");
+        }
+        OdradjeniTrening newOdradjeniTrening = this.odradjeniTreningRepository.save(odradjeniTrening);
+        return newOdradjeniTrening;
     }
 }

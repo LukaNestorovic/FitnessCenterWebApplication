@@ -28,13 +28,15 @@ $(document).on('click', '.btnPrijavi', function () {
     let terminId = this.dataset.id;
     let urlParams = new URLSearchParams(window.location.search);
     let clanId = urlParams.get('clanId');
+    let urlParams1 = new URLSearchParams(window.location.search);
+    let treningId = urlParams1.get('treningId');
     $.ajax({
         type: "POST",
         url: "http://localhost:8080/api/prijavljeni-treninzi/za-clana/" + clanId + "/termin/" + terminId,
         dataType: "json",
         success: function (res) {
             alert("Termin " + res.id + " je uspešno prijavljen!");
-            window.location.href = "PrijavljeniTreninzi.html?clanId=" + clanId + "&terminId=" + terminId;
+            window.location.href = "PrijavljeniTreninzi.html?clanId=" + clanId + "&terminId=" + terminId + "&treningId=" + treningId;
         },
         error: function () {
             alert("Greška prilikom prijave treninga!");

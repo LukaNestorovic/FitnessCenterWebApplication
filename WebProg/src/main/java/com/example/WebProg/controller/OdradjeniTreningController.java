@@ -1,12 +1,14 @@
 package com.example.WebProg.controller;
 
+import com.example.WebProg.model.*;
 import com.example.WebProg.model.OdradjeniTrening;
-import com.example.WebProg.model.OdradjeniTrening;
-import com.example.WebProg.model.Trening;
 import com.example.WebProg.model.dto.OdradjeniTreningDTO;
 import com.example.WebProg.model.dto.OdradjeniTreningDTO;
+import com.example.WebProg.model.dto.PrijavljeniTreningDTO;
 import com.example.WebProg.model.dto.TreningDTO;
 import com.example.WebProg.service.OdradjeniTreningService;
+import com.example.WebProg.service.RegistracijaClanaService;
+import com.example.WebProg.service.TerminService;
 import com.example.WebProg.service.TreningService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,10 +23,16 @@ import java.util.List;
 @RequestMapping(value = "/api/odradjeni-treninzi")
 public class OdradjeniTreningController {
     private final OdradjeniTreningService odradjeniTreningService;
+    private final RegistracijaClanaService clanService;
+    private final TreningService treningService;
+    private final TerminService terminService;
 
     @Autowired
-    public OdradjeniTreningController(OdradjeniTreningService odradjeniTreningService) {
+    public OdradjeniTreningController(OdradjeniTreningService odradjeniTreningService, RegistracijaClanaService clanService, TreningService treningService, TerminService terminService) {
         this.odradjeniTreningService = odradjeniTreningService;
+        this.clanService = clanService;
+        this.treningService = treningService;
+        this.terminService = terminService;
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -66,5 +74,24 @@ public class OdradjeniTreningController {
         OdradjeniTreningDTO updatedOdradjeniTreningDTO = new OdradjeniTreningDTO(updatedOdradjeniTrening.getId(), updatedOdradjeniTrening.getOcena(), updatedOdradjeniTrening.getTrening().getNaziv(), updatedOdradjeniTrening.getTrening().getTip_treninga(), updatedOdradjeniTrening.getTermin().getDatum_vreme());
 
         return new ResponseEntity<>(updatedOdradjeniTreningDTO, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/za-trening/{treningId}/termin/{terminId}/clana/{clanId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<OdradjeniTreningDTO> createOdradjeniTrening(@PathVariable("clanId") Long clanId, @PathVariable("terminId") Long terminId, @PathVariable("treningId") Long treningId) throws Exception {
+        Clan clan = clanService.findOne(clanId);
+        Trening trening = treningService.findOne(treningId);
+        Termin termin = terminService.findOne(terminId);
+
+        OdradjeniTrening odradjeniTrening = new OdradjeniTrening();
+
+        odradjeniTrening.setTrening(trening);
+        odradjeniTrening.setClan(clan);
+        odradjeniTrening.setTermin(termin);
+
+        OdradjeniTrening newOdradjeniTrening = odradjeniTreningService.create(odradjeniTrening);
+
+        OdradjeniTreningDTO newOdradjeniTreningDTO = new OdradjeniTreningDTO(newOdradjeniTrening.getId(), newOdradjeniTrening.getOcena(), newOdradjeniTrening.getTrening().getNaziv(), newOdradjeniTrening.getTrening().getTip_treninga(), newOdradjeniTrening.getTermin().getDatum_vreme());
+
+        return new ResponseEntity<>(newOdradjeniTreningDTO, HttpStatus.CREATED);
     }
 }
