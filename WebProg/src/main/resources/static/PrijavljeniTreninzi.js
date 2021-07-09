@@ -25,21 +25,6 @@ $(document).ready(function () {
             console.log("ERROR:\n", res);
         }
     });
-
-    $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/api/prijavljeni-treninzi/za-clana/" + clanId + "/termin/" + terminId,
-        dataType: "json",
-        contentType: "application/json",
-        data: JSON.stringify(newTermin),
-        success: function (res) {
-            alert("Termin " + res.id + " je uspešno prijavljen!");
-            window.location.href = "PrijavljeniTreninzi.html?clanId=" + clanId;
-        },
-        error: function () {
-            alert("Greška prilikom dodavanja termina!");
-        }
-    });
 });
 
 $(document).on('click', '.btnDelete', function () {
